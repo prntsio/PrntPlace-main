@@ -1,0 +1,353 @@
+{
+  "contractName": "PrntNFTFactoryStorages",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "reputationCount",
+          "type": "uint256"
+        }
+      ],
+      "name": "AddReputation",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "contract PrntNFT",
+          "name": "prntNFT",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "nftName",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "nftSymbol",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "prntPrice",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "ipfsHashOfPrnt",
+          "type": "string"
+        }
+      ],
+      "name": "PrntNFTCreated",
+      "type": "event"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"reputationCount\",\"type\":\"uint256\"}],\"name\":\"AddReputation\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"contract PrntNFT\",\"name\":\"prntNFT\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"nftName\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"nftSymbol\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"prntPrice\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"ipfsHashOfPrnt\",\"type\":\"string\"}],\"name\":\"PrntNFTCreated\",\"type\":\"event\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/Users/NEWMONEY/Desktop/PrntPlace-main/contracts/prnt-nft-factory/commons/PrntNFTFactoryStorages.sol\":\"PrntNFTFactoryStorages\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Users/NEWMONEY/Desktop/PrntPlace-main/contracts/PrntNFT.sol\":{\"keccak256\":\"0x968219facd4833d14dcc402bc83d0158bb46204c8fc0670856513fad527f2f09\",\"urls\":[\"bzz-raw://bf22b428b40d9ac867bc4113b5642f0ed71c8c6ea68753306af704e852bbb0b6\",\"dweb:/ipfs/QmUiaiJssxqZp514MepUtD8q6754rm4ptKCHAirtE6dcPi\"]},\"/C/Users/NEWMONEY/Desktop/PrntPlace-main/contracts/prnt-nft-factory/commons/PrntNFTFactoryEvents.sol\":{\"keccak256\":\"0x10a673ce514a993bdc9b86cec7aa63fb9b09c74bc3e1c0c523ecfaba700dcbee\",\"urls\":[\"bzz-raw://02826f2eb84d99d43e1d71432faf2ad0eab1cfd56ebf1f97c64b79dd956ef50b\",\"dweb:/ipfs/QmaCWkYoQrYJTxLakCNhjAxYRpDVteWZyEwk9fPdVGk7vH\"]},\"/C/Users/NEWMONEY/Desktop/PrntPlace-main/contracts/prnt-nft-factory/commons/PrntNFTFactoryObjects.sol\":{\"keccak256\":\"0x966c13830d527283dbc9985aec604958a0aaf04212fe3f2ee3630f9ad38c9dfb\",\"urls\":[\"bzz-raw://652474d1bd9f7787e3b1f9ad942bc0aebf756bb94817783391e07beaec4aaa1f\",\"dweb:/ipfs/QmUrjvqJPBCSY9idWNRFNhQ3mXeLUzMbd3wCQpVcrbpJBo\"]},\"/C/Users/NEWMONEY/Desktop/PrntPlace-main/contracts/prnt-nft-factory/commons/PrntNFTFactoryStorages.sol\":{\"keccak256\":\"0x1079f02e07cdefb12d2350e0fc8233564a89bded4963b9af9f8a55fd0d9d4185\",\"urls\":[\"bzz-raw://7e1482c3a7ae06b8469a706b468ec510aa4b2ca610c6fe1e244d231087c51089\",\"dweb:/ipfs/QmPL9wpJcrFTX4FLTmgpLGGA8VTb7WJkwo8Gb1dgNmNJZe\"]},\"@openzeppelin/contracts/GSN/Context.sol\":{\"keccak256\":\"0x90a3995645af7562d84b9d69363ffa5ae7217714ab61e951bf7bc450f40e4061\",\"urls\":[\"bzz-raw://216ef9d6b614db4eb46970b4e84903f2534a45572dd30a79f0041f1a5830f436\",\"dweb:/ipfs/QmNPrJ4MWKUAWzKXpUqeyKRUfosaoANZAqXgvepdrCwZAG\"]},\"@openzeppelin/contracts/drafts/Counters.sol\":{\"keccak256\":\"0x5be8533c5950173dc2b77b75108fae6e6c5449aedadde3385ba457394aad2384\",\"urls\":[\"bzz-raw://d429fb04f5b31d909dc759d0f88e28055b80b4dd43e5def4dffc947fa0609229\",\"dweb:/ipfs/QmaY9idX5CwLLtjjTQAdiiaDSrncgafkatUZXTbbajpz8b\"]},\"@openzeppelin/contracts/introspection/ERC165.sol\":{\"keccak256\":\"0x01aedbf24e121a744262e04c7815b2a4c8ce604dee4829c5cff00943a594ccf3\",\"urls\":[\"bzz-raw://999ab32a6498d8ad8db61d47c3774aae2ff919acceebe2aeb50879bef62642c3\",\"dweb:/ipfs/QmephAYF5hoymu9qCFK6mURM2kZJCxU4ntUb4KTf1miVPT\"]},\"@openzeppelin/contracts/introspection/IERC165.sol\":{\"keccak256\":\"0xe0ed10f53955c35eecb02724538650a155aa940be3f0a54cd3bde6c6b0c6e48c\",\"urls\":[\"bzz-raw://7dcfda88e3225987245908c3296f3559752647036804325ebfaa9fd1545161c3\",\"dweb:/ipfs/QmXxx5rHfLL57zdgyyyG9MMv4XGN7bpVSc2MuDcaCgto6u\"]},\"@openzeppelin/contracts/math/SafeMath.sol\":{\"keccak256\":\"0x640b6dee7a4b830bdfd52b5031a07fc2b12209f5b2e29e5d364a7d37f69d8076\",\"urls\":[\"bzz-raw://31113152e1ddb78fe7a4197f247591ca894e93f916867beb708d8e747b6cc74f\",\"dweb:/ipfs/QmbZaJyXdpsYGykVhHH9qpVGQg9DGCxE2QufbCUy3daTgq\"]},\"@openzeppelin/contracts/token/ERC721/ERC721.sol\":{\"keccak256\":\"0x1a1c02bc2487c763ad240f6b6440ec9dcb84870879aea3ed2a6b9cd300b637c7\",\"urls\":[\"bzz-raw://e6351696020fecf1c1b09437a2961cbdc3e1579238a9573b8577b58af463eeb6\",\"dweb:/ipfs/QmTg7UxUcuENko38JL2Pb2aqXkWgqW1xPDbJwmfo3RVrrV\"]},\"@openzeppelin/contracts/token/ERC721/ERC721Enumerable.sol\":{\"keccak256\":\"0x28f4e41b86db783cd8daf9fdec839ce5930332b60f6dc9ac4992dfb584997e79\",\"urls\":[\"bzz-raw://6f1b545ec9e1f0284e86ddd4ffff353e1ab5e026bbbfaa2a5d2d791c39d7afd7\",\"dweb:/ipfs/Qmf9rVfj6LreiE7NHkkT1S7eLbSQDDY1gKd9XWERx2AN7W\"]},\"@openzeppelin/contracts/token/ERC721/ERC721Full.sol\":{\"keccak256\":\"0x307231237999e19b618a03e7ecff1cee2a189dd019ebd203e5e43a63a7ac8aa3\",\"urls\":[\"bzz-raw://9a169446f024a24c3e5146cbeefea6be3bbbe9ba836f98f9d0c64af9f10773c4\",\"dweb:/ipfs/QmWibincTepM31suKeF6bd3shbPGjc9E7uULaXQBY1eNX5\"]},\"@openzeppelin/contracts/token/ERC721/ERC721Metadata.sol\":{\"keccak256\":\"0xe454aab4894511c610fb28e63e212608004921c10dfbffaf0b0e18a2c3b204eb\",\"urls\":[\"bzz-raw://cbb33c4aa1ba8470e389a79702b1b0450c03acd0e9471ed3ae5d566a958d36a4\",\"dweb:/ipfs/QmXryp8Ncftr8WYt7vWwoFQVKnbxtQ7dQBHzfzgWWYGisK\"]},\"@openzeppelin/contracts/token/ERC721/IERC721.sol\":{\"keccak256\":\"0x680c11bc8173eef7d5db843baaf64ce499476de2c172f6aea631dbee54bcd2e6\",\"urls\":[\"bzz-raw://0f314963ab26fb65c6f364d57900f0f1aa8f6aeb4396e327e5e5c646815f060e\",\"dweb:/ipfs/Qmf6eSUtRUF4YDxGyhQq7TVDYzuHcYEvk9Us3RVy5iZQVH\"]},\"@openzeppelin/contracts/token/ERC721/IERC721Enumerable.sol\":{\"keccak256\":\"0x5c573acd6c7b98d71f3c1c44d63dc17400b0fd7b26a52c9fded43b8b533dc4ec\",\"urls\":[\"bzz-raw://e23af54444d2dbfae58895339eb7b189e1ba5d0b7abde63716e7ef7da23b2fde\",\"dweb:/ipfs/QmZva7dE1SMd1yyizzc6ivSoBXXwpNveLV7iFNATNpq68Y\"]},\"@openzeppelin/contracts/token/ERC721/IERC721Metadata.sol\":{\"keccak256\":\"0x2b2b99dc7fe8fcd1f9427d00822b99cbc683dc21f5dd7532bd7e2281fd2c2ca2\",\"urls\":[\"bzz-raw://a8024c00e34efaf328f9592e76823c79f25fa0f6006bdf4a1e7fea204afd4773\",\"dweb:/ipfs/QmZns9jTr7843njq3J2iL2LLoWXK5mdzN1bDGd9GL3ahhD\"]},\"@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol\":{\"keccak256\":\"0x042048c375daca04b31e31c91bbae912b84b5eb818c4e31b2deb530fd2305342\",\"urls\":[\"bzz-raw://d877a87c5e29b9ffca3e334378058c051a4e012fd3635039681003a9376baf1f\",\"dweb:/ipfs/QmR45snf93cFXtB71TZcmoGy9DbcMha8CqgkDKaLvhjXZK\"]},\"@openzeppelin/contracts/utils/Address.sol\":{\"keccak256\":\"0x1a8e5072509c5ea7365eb1d48030b9be865140c8fb779968da0a459a0e174a11\",\"urls\":[\"bzz-raw://03335b7b07c7c8c8d613cfdd8ec39a0b5ec133ee510bf2fe6cc5a496767bef4b\",\"dweb:/ipfs/Qmebp4nzPja645c9yXSdJkGq96oU3am3LUnG2K3R7XxyKf\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50604c80601d6000396000f3fe6080604052600080fdfea365627a7a72315820311d902cdcdf2f2009a7d4f28da8a462f6c69f91ff63c51c4e5b565a3e96b90b6c6578706572696d656e74616cf564736f6c63430005100040",
+  "deployedBytecode": "0x6080604052600080fdfea365627a7a72315820311d902cdcdf2f2009a7d4f28da8a462f6c69f91ff63c51c4e5b565a3e96b90b6c6578706572696d656e74616cf564736f6c63430005100040",
+  "sourceMap": "260:111:8:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;260:111:8;;;;;;;",
+  "deployedSourceMap": "260:111:8:-;;;;;",
+  "source": "pragma solidity ^0.5.3;\npragma experimental ABIEncoderV2;\n//import \"@openzeppelin/ReentrancyGuard.sol\";\nimport { PrntNFTFactoryObjects } from \"./PrntNFTFactoryObjects.sol\";\nimport { PrntNFTFactoryEvents } from \"./PrntNFTFactoryEvents.sol\";\n\n\n// shared storage\ncontract PrntNFTFactoryStorages is PrntNFTFactoryObjects, PrntNFTFactoryEvents {\n\n    //Prnt[] public prnts;\n\n}\n\n",
+  "sourcePath": "C:/Users/NEWMONEY/Desktop/PrntPlace-main/contracts/prnt-nft-factory/commons/PrntNFTFactoryStorages.sol",
+  "ast": {
+    "absolutePath": "/C/Users/NEWMONEY/Desktop/PrntPlace-main/contracts/prnt-nft-factory/commons/PrntNFTFactoryStorages.sol",
+    "exportedSymbols": {
+      "PrntNFTFactoryStorages": [
+        1023
+      ]
+    },
+    "id": 1024,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1013,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".3"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:8"
+      },
+      {
+        "id": 1014,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "24:33:8"
+      },
+      {
+        "absolutePath": "/C/Users/NEWMONEY/Desktop/PrntPlace-main/contracts/prnt-nft-factory/commons/PrntNFTFactoryObjects.sol",
+        "file": "./PrntNFTFactoryObjects.sol",
+        "id": 1016,
+        "nodeType": "ImportDirective",
+        "scope": 1024,
+        "sourceUnit": 1012,
+        "src": "104:68:8",
+        "symbolAliases": [
+          {
+            "foreign": 1015,
+            "local": null
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/C/Users/NEWMONEY/Desktop/PrntPlace-main/contracts/prnt-nft-factory/commons/PrntNFTFactoryEvents.sol",
+        "file": "./PrntNFTFactoryEvents.sol",
+        "id": 1018,
+        "nodeType": "ImportDirective",
+        "scope": 1024,
+        "sourceUnit": 1006,
+        "src": "173:66:8",
+        "symbolAliases": [
+          {
+            "foreign": 1017,
+            "local": null
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 1019,
+              "name": "PrntNFTFactoryObjects",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 1011,
+              "src": "295:21:8",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_PrntNFTFactoryObjects_$1011",
+                "typeString": "contract PrntNFTFactoryObjects"
+              }
+            },
+            "id": 1020,
+            "nodeType": "InheritanceSpecifier",
+            "src": "295:21:8"
+          },
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 1021,
+              "name": "PrntNFTFactoryEvents",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 1005,
+              "src": "318:20:8",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_PrntNFTFactoryEvents_$1005",
+                "typeString": "contract PrntNFTFactoryEvents"
+              }
+            },
+            "id": 1022,
+            "nodeType": "InheritanceSpecifier",
+            "src": "318:20:8"
+          }
+        ],
+        "contractDependencies": [
+          1005,
+          1011
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1023,
+        "linearizedBaseContracts": [
+          1023,
+          1005,
+          1011
+        ],
+        "name": "PrntNFTFactoryStorages",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 1024,
+        "src": "260:111:8"
+      }
+    ],
+    "src": "0:373:8"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "/C/Users/NEWMONEY/Desktop/PrntPlace-main/contracts/prnt-nft-factory/commons/PrntNFTFactoryStorages.sol",
+      "exportedSymbols": {
+        "PrntNFTFactoryStorages": [
+          1023
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.5",
+            ".3"
+          ]
+        },
+        "id": 1013,
+        "name": "PragmaDirective",
+        "src": "0:23:8"
+      },
+      {
+        "attributes": {
+          "literals": [
+            "experimental",
+            "ABIEncoderV2"
+          ]
+        },
+        "id": 1014,
+        "name": "PragmaDirective",
+        "src": "24:33:8"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 1012,
+          "absolutePath": "/C/Users/NEWMONEY/Desktop/PrntPlace-main/contracts/prnt-nft-factory/commons/PrntNFTFactoryObjects.sol",
+          "file": "./PrntNFTFactoryObjects.sol",
+          "scope": 1024,
+          "symbolAliases": [
+            {
+              "foreign": 1015,
+              "local": null
+            }
+          ],
+          "unitAlias": ""
+        },
+        "id": 1016,
+        "name": "ImportDirective",
+        "src": "104:68:8"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 1006,
+          "absolutePath": "/C/Users/NEWMONEY/Desktop/PrntPlace-main/contracts/prnt-nft-factory/commons/PrntNFTFactoryEvents.sol",
+          "file": "./PrntNFTFactoryEvents.sol",
+          "scope": 1024,
+          "symbolAliases": [
+            {
+              "foreign": 1017,
+              "local": null
+            }
+          ],
+          "unitAlias": ""
+        },
+        "id": 1018,
+        "name": "ImportDirective",
+        "src": "173:66:8"
+      },
+      {
+        "attributes": {
+          "contractDependencies": [
+            1005,
+            1011
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            1023,
+            1005,
+            1011
+          ],
+          "name": "PrntNFTFactoryStorages",
+          "nodes": [
+            null
+          ],
+          "scope": 1024
+        },
+        "children": [
+          {
+            "attributes": {
+              "arguments": null
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "PrntNFTFactoryObjects",
+                  "referencedDeclaration": 1011,
+                  "type": "contract PrntNFTFactoryObjects"
+                },
+                "id": 1019,
+                "name": "UserDefinedTypeName",
+                "src": "295:21:8"
+              }
+            ],
+            "id": 1020,
+            "name": "InheritanceSpecifier",
+            "src": "295:21:8"
+          },
+          {
+            "attributes": {
+              "arguments": null
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "PrntNFTFactoryEvents",
+                  "referencedDeclaration": 1005,
+                  "type": "contract PrntNFTFactoryEvents"
+                },
+                "id": 1021,
+                "name": "UserDefinedTypeName",
+                "src": "318:20:8"
+              }
+            ],
+            "id": 1022,
+            "name": "InheritanceSpecifier",
+            "src": "318:20:8"
+          }
+        ],
+        "id": 1023,
+        "name": "ContractDefinition",
+        "src": "260:111:8"
+      }
+    ],
+    "id": 1024,
+    "name": "SourceUnit",
+    "src": "0:373:8"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.3.4",
+  "updatedAt": "2021-03-19T23:31:12.552Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}
