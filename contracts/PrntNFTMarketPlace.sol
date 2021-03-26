@@ -54,9 +54,9 @@ contract PrntNFTMarketplace is PrntNFTTradable, PrntNFTMarketplaceEvents {
         emit PrntNFTOwnershipChanged(prntNFT, prntId, ownerBeforeOwnershipTransferred, ownerAfterOwnershipTransferred);
 
         /// Mint a prnt with a new prntId ///
-        string memory tokenURI = prntNFTFactory.getTokenURI(prntData.ipfsHashOfPrnt);
+        //string memory tokenURI = prntNFTFactory.getTokenURI(prntData.ipfsHashOfPrnt);
         /// [Note]: IPFS hash + URL ///
-        prntNFT.mint(msg.sender, tokenURI);
+        //prntNFT.mint(msg.sender, tokenURI);
     }
 
 
