@@ -59,33 +59,6 @@ contract PrntNFTMarketplace is PrntNFTTradable, PrntNFTMarketplaceEvents {
     }
 
 
-    ///-----------------------------------------------------
-    /// Methods below are pending methods
-    ///-----------------------------------------------------
 
-    /** 
-     * @dev reputation function is that gives reputation to a user who has ownership of being posted prnt.
-     * @dev Each user has reputation data in struct
-     */
-    function reputation(address from, address to, uint256 prntId) public returns (uint256, uint256) {
-
-        // Prnt storage prnt = prnts[prntId];
-        // prnt.reputation = prnt.reputation.add(1);
-
-        // emit AddReputation(prntId, prnt.reputation);
-
-        // return (prntId, prnt.reputation);
-        return (0, 0);
-    }
-    
-
-    function getReputationCount(uint256 prntId) public view returns (uint256) {
-        uint256 curretReputationCount;
-
-        // Prnt memory prnt = prnts[prntId];
-        // curretReputationCount = prnt.reputation;
-
-        return curretReputationCount;
-    }    
-
+   
 }
