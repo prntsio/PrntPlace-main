@@ -1,0 +1,23 @@
+.intro {
+  margin: 50px 50px 50px 50px;
+  padding: 30px 10px 20px 30px;
+  background: rgb(214, 221, 221);
+
+  border-radius: 10px;
+  height: 500px;
+  overflow: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 100px;
+  align-items: center;
+}
+
+.intro-img img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.intro-content {
+  zoom: 150%;
+}

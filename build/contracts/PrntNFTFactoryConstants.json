@@ -1,25 +1,25 @@
 {
   "contractName": "PrntNFTFactoryConstants",
   "abi": [],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{},\"title\":\"Shared constants\"},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/Users/NEWMONEY/Desktop/PrntPlace-main/contracts/prnt-nft-factory/commons/PrntNFTFactoryConstants.sol\":\"PrntNFTFactoryConstants\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Users/NEWMONEY/Desktop/PrntPlace-main/contracts/prnt-nft-factory/commons/PrntNFTFactoryConstants.sol\":{\"keccak256\":\"0xd9b4213d5c7b408a9d93c6a52d6a68ad4535093e629065778aa2b04de4651331\",\"urls\":[\"bzz-raw://13d77436f337a45bb6fbe284638fd6549491ea49a8397760fcb2efd9538a8216\",\"dweb:/ipfs/QmY87DU4P6pZn9yobouKeE6MzHMQgU7a7soZ8B5DKLdzvz\"]}},\"version\":1}",
-  "bytecode": "0x6080604052348015600f57600080fd5b50604c80601d6000396000f3fe6080604052600080fdfea365627a7a72315820a353561910e831203887a88533f5e857cc21b21b22947dd0758494d95336d5656c6578706572696d656e74616cf564736f6c63430005100040",
-  "deployedBytecode": "0x6080604052600080fdfea365627a7a72315820a353561910e831203887a88533f5e857cc21b21b22947dd0758494d95336d5656c6578706572696d656e74616cf564736f6c63430005100040",
-  "sourceMap": "87:76:11:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;87:76:11;;;;;;;",
-  "deployedSourceMap": "87:76:11:-;;;;;",
-  "source": "pragma solidity ^0.5.3;\npragma experimental ABIEncoderV2;\n\n/// @title Shared constants\ncontract PrntNFTFactoryConstants {\n\n    uint8 constant EXAMPLE_VALUE = 0;\n\n}\n",
-  "sourcePath": "C:/Users/NEWMONEY/Desktop/PrntPlace-main/contracts/prnt-nft-factory/commons/PrntNFTFactoryConstants.sol",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{},\"title\":\"Shared constants\"},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/E/Blockchain/PrntPlace-main/contracts/prnt-nft-factory/commons/PrntNFTFactoryConstants.sol\":\"PrntNFTFactoryConstants\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/E/Blockchain/PrntPlace-main/contracts/prnt-nft-factory/commons/PrntNFTFactoryConstants.sol\":{\"keccak256\":\"0xd309fa1b321a1c8aaa3e619596c724e5801818e217961e95a3405efe09298268\",\"urls\":[\"bzz-raw://3fcce0d89af7c06d6fe896b981e974bf5a4ca027e642036a434cf2ee834a7bc2\",\"dweb:/ipfs/QmaXSDQkTtyAEsKECq7xfKeRppT5shQdbet16zVEfhC4aM\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50604c80601d6000396000f3fe6080604052600080fdfea365627a7a72315820bad41e8c1aac8043d07b86eca3fdc70398965eeb67c0ad5e9785118ce5441cc86c6578706572696d656e74616cf564736f6c63430005100040",
+  "deployedBytecode": "0x6080604052600080fdfea365627a7a72315820bad41e8c1aac8043d07b86eca3fdc70398965eeb67c0ad5e9785118ce5441cc86c6578706572696d656e74616cf564736f6c63430005100040",
+  "sourceMap": "91:80:12:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;91:80:12;;;;;;;",
+  "deployedSourceMap": "91:80:12:-;;;;;",
+  "source": "pragma solidity ^0.5.3;\r\npragma experimental ABIEncoderV2;\r\n\r\n/// @title Shared constants\r\ncontract PrntNFTFactoryConstants {\r\n\r\n    uint8 constant EXAMPLE_VALUE = 0;\r\n\r\n}\r\n",
+  "sourcePath": "E:/Blockchain/PrntPlace-main/contracts/prnt-nft-factory/commons/PrntNFTFactoryConstants.sol",
   "ast": {
-    "absolutePath": "/C/Users/NEWMONEY/Desktop/PrntPlace-main/contracts/prnt-nft-factory/commons/PrntNFTFactoryConstants.sol",
+    "absolutePath": "/E/Blockchain/PrntPlace-main/contracts/prnt-nft-factory/commons/PrntNFTFactoryConstants.sol",
     "exportedSymbols": {
       "PrntNFTFactoryConstants": [
-        1593
+        1616
       ]
     },
-    "id": 1594,
+    "id": 1617,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1588,
+        "id": 1611,
         "literals": [
           "solidity",
           "^",
@@ -27,16 +27,16 @@
           ".3"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:23:11"
+        "src": "0:23:12"
       },
       {
-        "id": 1589,
+        "id": 1612,
         "literals": [
           "experimental",
           "ABIEncoderV2"
         ],
         "nodeType": "PragmaDirective",
-        "src": "24:33:11"
+        "src": "25:33:12"
       },
       {
         "baseContracts": [],
@@ -44,20 +44,20 @@
         "contractKind": "contract",
         "documentation": "@title Shared constants",
         "fullyImplemented": true,
-        "id": 1593,
+        "id": 1616,
         "linearizedBaseContracts": [
-          1593
+          1616
         ],
         "name": "PrntNFTFactoryConstants",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": true,
-            "id": 1592,
+            "id": 1615,
             "name": "EXAMPLE_VALUE",
             "nodeType": "VariableDeclaration",
-            "scope": 1593,
-            "src": "127:32:11",
+            "scope": 1616,
+            "src": "133:32:12",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -65,10 +65,10 @@
               "typeString": "uint8"
             },
             "typeName": {
-              "id": 1590,
+              "id": 1613,
               "name": "uint8",
               "nodeType": "ElementaryTypeName",
-              "src": "127:5:11",
+              "src": "133:5:12",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint8",
                 "typeString": "uint8"
@@ -77,14 +77,14 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "30",
-              "id": 1591,
+              "id": 1614,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
               "kind": "number",
               "lValueRequested": false,
               "nodeType": "Literal",
-              "src": "158:1:11",
+              "src": "164:1:12",
               "subdenomination": null,
               "typeDescriptions": {
                 "typeIdentifier": "t_rational_0_by_1",
@@ -95,18 +95,18 @@
             "visibility": "internal"
           }
         ],
-        "scope": 1594,
-        "src": "87:76:11"
+        "scope": 1617,
+        "src": "91:80:12"
       }
     ],
-    "src": "0:164:11"
+    "src": "0:173:12"
   },
   "legacyAST": {
     "attributes": {
-      "absolutePath": "/C/Users/NEWMONEY/Desktop/PrntPlace-main/contracts/prnt-nft-factory/commons/PrntNFTFactoryConstants.sol",
+      "absolutePath": "/E/Blockchain/PrntPlace-main/contracts/prnt-nft-factory/commons/PrntNFTFactoryConstants.sol",
       "exportedSymbols": {
         "PrntNFTFactoryConstants": [
-          1593
+          1616
         ]
       }
     },
@@ -120,9 +120,9 @@
             ".3"
           ]
         },
-        "id": 1588,
+        "id": 1611,
         "name": "PragmaDirective",
-        "src": "0:23:11"
+        "src": "0:23:12"
       },
       {
         "attributes": {
@@ -131,9 +131,9 @@
             "ABIEncoderV2"
           ]
         },
-        "id": 1589,
+        "id": 1612,
         "name": "PragmaDirective",
-        "src": "24:33:11"
+        "src": "25:33:12"
       },
       {
         "attributes": {
@@ -147,17 +147,17 @@
           "documentation": "@title Shared constants",
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            1593
+            1616
           ],
           "name": "PrntNFTFactoryConstants",
-          "scope": 1594
+          "scope": 1617
         },
         "children": [
           {
             "attributes": {
               "constant": true,
               "name": "EXAMPLE_VALUE",
-              "scope": 1593,
+              "scope": 1616,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "uint8",
@@ -169,9 +169,9 @@
                   "name": "uint8",
                   "type": "uint8"
                 },
-                "id": 1590,
+                "id": 1613,
                 "name": "ElementaryTypeName",
-                "src": "127:5:11"
+                "src": "133:5:12"
               },
               {
                 "attributes": {
@@ -186,24 +186,24 @@
                   "type": "int_const 0",
                   "value": "0"
                 },
-                "id": 1591,
+                "id": 1614,
                 "name": "Literal",
-                "src": "158:1:11"
+                "src": "164:1:12"
               }
             ],
-            "id": 1592,
+            "id": 1615,
             "name": "VariableDeclaration",
-            "src": "127:32:11"
+            "src": "133:32:12"
           }
         ],
-        "id": 1593,
+        "id": 1616,
         "name": "ContractDefinition",
-        "src": "87:76:11"
+        "src": "91:80:12"
       }
     ],
-    "id": 1594,
+    "id": 1617,
     "name": "SourceUnit",
-    "src": "0:164:11"
+    "src": "0:173:12"
   },
   "compiler": {
     "name": "solc",
@@ -211,7 +211,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.4",
-  "updatedAt": "2021-03-19T23:30:07.861Z",
+  "updatedAt": "2021-04-01T14:58:47.077Z",
   "devdoc": {
     "methods": {},
     "title": "Shared constants"

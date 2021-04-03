@@ -1,0 +1,49 @@
+.upload-box {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+}
+
+.upload-file {
+  margin: 10px 20px;
+  height: 200px;
+  width: 700px;
+  border-radius: 5px;
+  box-shadow: 26px 26px 22px #e4e5e6, -20px -20px 18px #f1f1f1;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+}
+
+.upload-text {
+  margin-bottom: 20px;
+}
+
+.nft-details {
+  margin: 10px 0px;
+  display: grid;
+  justify-content: center;
+  width: 1050px;
+  justify-items: start;
+}
+
+.nft-details input {
+  background: rgb(232 237 238);
+  border-radius: 10px;
+  margin: 10px 0px;
+  border-color: aliceblue;
+  font-size: larger;
+  font-family: fantasy;
+  padding: 5px 10px;
+  box-shadow: none;
+}
+
+input:focus {
+  outline: none !important;
+  outline-offset: none !important;
+}
+
+.nft-details button {
+  margin-top: 20px;
+  margin-left: -0px;
+}

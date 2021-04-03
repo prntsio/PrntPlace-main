@@ -1,13 +1,191 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+
+* {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: rgb(233, 239, 240);
+}
+
+.container {
+  max-width: inherit;
+  margin: 30px auto;
+  overflow: auto;
+  min-height: inherit;
+  border: 1px solid steelblue;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+.header {
+  margin: 20px 40px 30px 20px;
+  width: inherit;
+  height: 65px;
+  padding: 10px 10px 10px 30px;
+  display: flex;
+  color: white;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.nav-links {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.link-1 {
+  padding: 12px 24px;
+  border-radius: 24px;
+  /* background: #d6dddd;
+  box-shadow: 4px 5px 8px #bdbde8, 6px 8px 7px #efeff1; */
+  background: rgb(233 239 240);
+  box-shadow: 5px 5px 13px #e6e6e6, -5px -5px 13px #f4f4f4;
+}
+
+.link-1:hover {
+  /* color: white; */
+  /* box-shadow: inset 7px 7px 14px #bababa, inset -7px -7px 14px #ffffff; */
+  box-shadow: inset 7px 7px 13px #e6e6e6, inset -7px -7px 13px #f4f4f4;
+}
+
+.profile-links {
+  display: flex;
+}
+
+.link-2 {
+  margin: 0px 10px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: rgb(0, 0, 0);
+  /* background: #1c1c1c; */
+  /* box-shadow: 9px 9px 6px #1b1b1b, -9px -9px 6px #1d1d1d; */
+  color: rgb(255, 255, 255);
+  letter-spacing: 1px;
+  font-size: smaller;
+  /* box-shadow: 5px 5px 13px #e6e6e6, -5px -5px 13px #f4f4f4; */
+}
+
+.link-2:hover {
+  color: rgb(198, 198, 198);
+}
+
+/* .link a {
+  
+} */
+
+/* unvisited link */
+a:link {
+  color: rgb(0, 0, 0);
+}
+
+/* visited link */
+a:visited {
+  color: rgb(0, 0, 0);
+  /* box-shadow: inset 7px 7px 13px #e6e6e6, inset -7px -7px 13px #f4f4f4; */
+}
+
+/* mouse over link */
+/* a:hover {
+  color: rgb(255, 255, 255);
+} */
+
+/* selected link */
+/* .nav-links a:active {
+  color: rgb(0, 0, 0);
+} */
+
+.btn {
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: inherit;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+.task {
+  background: #f4f4f4;
+  margin: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.task.reminder {
+  border-left: 5px solid green;
+}
+
+.task h3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.add-form {
+  margin-bottom: 40px;
+}
+
+.form-control {
+  margin: 20px 0;
+}
+
+.form-control label {
+  display: block;
+}
+
+.form-control input {
+  width: 100%;
+  height: 40px;
+  margin: 5px;
+  padding: 3px 7px;
+  font-size: 17px;
+}
+
+.form-control-check {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-control-check label {
+  flex: 1;
+}
+
+.form-control-check input {
+  flex: 2;
+  height: 20px;
+}
+
+footer {
+  margin-top: 30px;
+  text-align: center;
 }
