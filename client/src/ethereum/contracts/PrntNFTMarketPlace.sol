@@ -10,6 +10,11 @@ import { PrntNFTData } from "./PrntNFTData.sol";
 
 contract PrntNFTMarketplace is PrntNFTTradable, PrntNFTMarketplaceEvents {
     using SafeMath for uint256;
+    
+    // PrntNFTData.Prnt[] public _prnts;
+    // mapping(address => PrntNFT[]) creations;
+    mapping(address => PrntNFTData.Prnt[]) collections;
+    // mapping(address => mapping(address => bool)) currentCollections;
 
     address payable public PRNT_NFT_MARKETPLACE;
 
@@ -29,7 +34,8 @@ contract PrntNFTMarketplace is PrntNFTTradable, PrntNFTMarketplaceEvents {
         // PrntNFT prntNFT = _prntNFT;
 
         PrntNFTData.Prnt memory prnt = prntNFTData.getPrntByNFTAddress(prntNFT);
-        address _seller = prnt.ownerAddress;                     /// Owner
+        uint len = prnt.ownerAddress.length;
+        address _seller = prnt.ownerAddress[len-1];                     /// current owner
         address payable seller = address(uint160(_seller));  /// Convert owner address with payable
         uint buyAmount = prnt.prntPrice;
         require (msg.value >= buyAmount, "msg.value should be equal to the buyAmount");
@@ -43,7 +49,8 @@ contract PrntNFTMarketplace is PrntNFTTradable, PrntNFTMarketplaceEvents {
         prntNFT.approve(buyer, prntId);
         
         address ownerBeforeOwnershipTransferred = prntNFT.ownerOf(prntId);
-
+        
+        
         /// Transfer Ownership of the PrntNFT from a seller to a buyer
         transferOwnershipOfPrntNFT(prntNFT, prntId, buyer);    
         prntNFTData.updateOwnerOfPrntNFT(prntNFT, buyer);
@@ -51,14 +58,21 @@ contract PrntNFTMarketplace is PrntNFTTradable, PrntNFTMarketplaceEvents {
 
         /// Event for checking result of transferring ownership of a prntNFT
         address ownerAfterOwnershipTransferred = prntNFT.ownerOf(prntId);
+        
+        PrntNFTData.Prnt memory _prnt = prntNFTData.getPrntByNFTAddress(prntNFT);
+        collections[buyer].push(_prnt);
+        
+        prntNFTData.addArtist(msg.sender);
+        
         emit PrntNFTOwnershipChanged(prntNFT, prntId, ownerBeforeOwnershipTransferred, ownerAfterOwnershipTransferred);
-
-        /// Mint a prnt with a new prntId
-        //string memory tokenURI = prntNFTFactory.getTokenURI(prntData.ipfsHashOfPrnt);  /// [Note]: IPFS hash + URL
-        //prntNFT.mint(msg.sender, tokenURI);
     }
+    
 
-
+    function getCollections(address owner) public view returns (PrntNFTData.Prnt[] memory) {
+        return collections[owner];
+    }
+    
+    
     ///-----------------------------------------------------
     /// Methods below are pending methods
     ///-----------------------------------------------------

@@ -1,6 +1,6 @@
 pragma solidity ^0.5.3;
 pragma experimental ABIEncoderV2;
-import { PrntNFT } from "../../PrntNFT.sol";
+import { PrntNFT } from "./PrntNFT.sol";
 
 
 contract PrntNFTDataObjects {
@@ -9,11 +9,15 @@ contract PrntNFTDataObjects {
         PrntNFT prntNFT;
         string prntNFTName;
         string prntNFTSymbol;
-        address ownerAddress;
+        address[] ownerAddress;
         uint prntPrice;
         string ipfsHashOfPrnt;
         string status;  /// "Open" or "Cancelled"
         uint256 reputation;
     }
-
+    
+    struct Artists {
+        address[] values;
+        mapping (address => bool) is_in;
+    }
 }

@@ -16,6 +16,8 @@ contract PrntNFTFactory is PrntNFTFactoryStorages {
     using Strings for string;    
 
     address[] public prntAddresses;
+    // PrntNFTData.Prnt[] public _prnts;
+    mapping(address => PrntNFTData.Prnt[]) creations;
     address PRNT_NFT_MARKETPLACE;
 
     PrntNFTMarketplace public prntNFTMarketplace;
@@ -30,19 +32,32 @@ contract PrntNFTFactory is PrntNFTFactoryStorages {
     /**
      * @notice - Create a new prntNFT when a seller (owner) upload a prnt onto IPFS
      */
-    function createNewPrntNFT(string memory nftName, string memory nftSymbol, uint prntPrice, string memory ipfsHashOfPrnt) public returns (address prntNFT) {
+    function createNewPrntNFT(string memory nftName, string memory nftSymbol, uint prntPrice, string memory ipfsHashOfPrnt) public returns (bool) {
         address owner = msg.sender;  /// [Note]: Initial owner of prntNFT is msg.sender
         string memory tokenURI = getTokenURI(ipfsHashOfPrnt);  /// [Note]: IPFS hash + URL
         PrntNFT prntNFT = new PrntNFT(owner, nftName, nftSymbol, tokenURI, prntPrice);
         prntAddresses.push(address(prntNFT));
-
+        
+        
+        // creations[owner] = 
+        
+        // creations[owner].push(prntNFT);
+        // prntNFTMarketplace.saveCreationsAddress(owner,creations[owner]);
+        
         /// Save metadata of a prntNFT created
         prntNFTData.saveMetadataOfPrntNFT(prntAddresses, prntNFT, nftName, nftSymbol, msg.sender, prntPrice, ipfsHashOfPrnt);
         prntNFTData.updateStatus(prntNFT, "Open");
+        
+        PrntNFTData.Prnt memory prnt = prntNFTData.getPrntByNFTAddress(prntNFT);
+        creations[owner].push(prnt);
+        
+        prntNFTData.addArtist(msg.sender);
 
         emit PrntNFTCreated(msg.sender, prntNFT, nftName, nftSymbol, prntPrice, ipfsHashOfPrnt);
+    }
     
-        return address(prntNFT);
+    function getCreations(address owner) public view returns (PrntNFTData.Prnt[] memory) {
+        return creations[owner];
     }
 
 

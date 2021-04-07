@@ -10,6 +10,7 @@ import { PrntNFT } from "./PrntNFT.sol";
 contract PrntNFTData is PrntNFTDataStorages {
 
     address[] public prntAddresses;
+    Artists artists;
 
     constructor() public {}
 
@@ -26,17 +27,24 @@ contract PrntNFTData is PrntNFTDataStorages {
         string memory _ipfsHashOfPrnt
     ) public returns (bool) {
         /// Save metadata of a prntNFT of prnt
-        Prnt memory prnt = Prnt({
-            prntNFT: _prntNFT,
-            prntNFTName: _prntNFTName,
-            prntNFTSymbol: _prntNFTSymbol,
-            ownerAddress: _ownerAddress,
-            prntPrice: _prntPrice,
-            ipfsHashOfPrnt: _ipfsHashOfPrnt,
-            status: "Open",
-            reputation: 0
-        });
+        address[] memory ownerAddress;
+        // ownerAddress[0] = _ownerAddress;
+        
+        Prnt memory prnt = Prnt(
+            _prntNFT,
+            _prntNFTName,
+            _prntNFTSymbol,
+            ownerAddress,
+            _prntPrice,
+            _ipfsHashOfPrnt,
+            "Open",
+            0
+        );
+        
         prnts.push(prnt);
+        
+        Prnt storage _prnt = prnts[prnts.length -1];
+        _prnt.ownerAddress.push(_ownerAddress);
 
         /// Update prntAddresses
         prntAddresses = _prntAddresses;     
@@ -52,7 +60,7 @@ contract PrntNFTData is PrntNFTDataStorages {
         /// Update metadata of a prntNFT of prnt
         Prnt storage prnt = prnts[prntIndex];
         require (_newOwner != address(0), "A new owner address should be not empty");
-        prnt.ownerAddress = _newOwner;  
+        prnt.ownerAddress.push(_newOwner);
     }
 
     /**
@@ -107,6 +115,17 @@ contract PrntNFTData is PrntNFTDataStorages {
 
     function getAllPrnts() public view returns (Prnt[] memory _prnts) {
         return prnts;
+    }
+    
+    function addArtist(address artist) public returns (bool) {
+        if (!artists.is_in[artist]) {
+            artists.values.push(artist);
+            artists.is_in[artist] = true;
+        }
+    }
+    
+    function getAllArtists() public view returns (address[] memory) {
+        return artists.values;
     }
 
 }
