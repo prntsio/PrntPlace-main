@@ -26,14 +26,20 @@
 }
 
 .artist-img-container {
-  overflow: auto;
+  overflow: hidden;
   width: 200px;
   height: 200px;
   background: rgb(224, 224, 224);
   border-radius: 100px;
   box-shadow: 3px 3px 7px #bebce4, -1px -2px 30px #fffff2;
+  
   /* box-shadow: inset 3px 3px 7px #bebce4, inset -1px -2px 30px #fffff2; */
   /* box-shadow: inset 7px 7px 14px #bababa, inset -7px -7px 14px #d5d5d5; */
+}
+
+.artist-img-container img {
+  width: 200px;
+  height: 200px;
 }
 
 /* .artist-img-container:hover {

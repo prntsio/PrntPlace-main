@@ -13,16 +13,13 @@ const Artworks = () => {
         const list = await PrntNFTData.methods.getAllPrnts().call();
         console.log(list);
         const listitems =  list.map((items) => {
-            if(items[5] === "QmasmgDBqsM58pC7UBo8DeMvhpXsBfhU1dt55aM7XcioKo") return null
-                
-            if(items[5] === "0xBe29E7D65F8507FaaCC26504f668754E64002d9c") return null
-                
+            
             return  (
                 <div key={items[5]} >
                     <Link to={`/music/${items[0]}`} >
                         <Card 
                             title={`# ${items[1]} - ${items[2]}`}
-                            username={`${items[3].slice(0,6)}....${items[3].slice(-7,-1)}`}
+                            username={`${items[3][0].slice(0,6)}....${items[3][0].slice(-7,-1)}`}
                             price={`${web3.utils.fromWei(items[4],'ether')} ETH`}
                             imageUrl={`https://ipfs.io/ipfs/${items[5]}`}
                         />
@@ -30,7 +27,7 @@ const Artworks = () => {
                 </div>
             );
         })
-        
+        listitems.reverse();
         setlistItems(listitems)
     }
 

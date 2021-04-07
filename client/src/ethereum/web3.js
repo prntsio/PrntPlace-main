@@ -7,8 +7,8 @@ if(typeof window !== 'undefined' && typeof window.web3 !== 'undefined') {
   web3 = new Web3(window.ethereum);
 } else {
   const provider = new Web3.providers.HttpProvider(
-    // 'https://kovan.infura.io/v3/55af5fb4b6fd4172a1eecfa69550e259'
-    'https://ropsten.infura.io/v3/55af5fb4b6fd4172a1eecfa69550e259'
+    'https://kovan.infura.io/v3/55af5fb4b6fd4172a1eecfa69550e259'
+    // 'https://ropsten.infura.io/v3/55af5fb4b6fd4172a1eecfa69550e259'
   );
   web3 = new Web3(provider);
 }

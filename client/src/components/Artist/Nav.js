@@ -1,18 +1,26 @@
 import React from 'react'
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
-const Nav = () => {
+const Nav = ({id}) => {
     return (
         <div className="nav">
             <div className="nav-lnk">
-                <Link to='/artists/{username}' >
-                    <h3>Creations</h3>
-                </Link>
+                <NavLink 
+                    exact
+                    to={`/artists/${id}`} 
+                    activeClassName="selected"
+                >
+                    <h3 className="link-cc">Creations</h3>
+                </NavLink>
             </div>
             <div className="nav-lnk">
-                <Link to='/artists/{username}/collections'>
-                    <h3>Collections</h3>
-                </Link>
+                <NavLink 
+                    exact
+                    to={`/artists/${id}/collections`}
+                    activeClassName="selected"
+                >
+                    <h3 className="link-cc">Collections</h3>
+                </NavLink>
             </div>
         </div>
     )

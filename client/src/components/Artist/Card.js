@@ -1,7 +1,9 @@
 import React from 'react'
+import profile from '../../img/profile.png';
+import default_profile from '../../img/default-profile.jpg'
 
-const Card = ({imageUrl, description, name, ethaddress}) => {
-    const address = ethaddress.slice(0,7) + "...." + ethaddress.slice(-7);
+const Card = ({imageUrl, description, name, ethAddress}) => {
+    const address = ethAddress.slice(0,7) + "...." + ethAddress.slice(-7);
     return (
         <div className='artist-card-container'>
             <div className='artist-img-container'>
@@ -15,14 +17,19 @@ const Card = ({imageUrl, description, name, ethaddress}) => {
                 <h4 className="user-name"> @{address}</h4>
             </div>
             <div className='desc'>
-                {description} Music Artist. Rapper.
+                {description} 
+                {/* Music Artist. Rapper. */}
             </div>
         </div>
     )
 }
 
+const profile_image = [profile, default_profile]
+
 Card.defaultProps = {
-    ethaddress: "0x6c0085E600398247a37de389931CCea8EdD3ba67"
+    ethAddress: "",
+    // imageUrl: profile_image[Math.round(Math.random())]
+    imageUrl: profile_image[0]
 }
 
 export default Card

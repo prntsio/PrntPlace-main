@@ -1,116 +1,104 @@
 import React, {useState, useEffect} from 'react'
 import "../../css/Art.css";
 import {Link, useParams} from 'react-router-dom';
+import ReactLoading from 'react-loading';
 import Bids from '../Bids';
 import web3 from '../../ethereum/web3';
 import PrntNFTData from '../../ethereum/PrntNFTData';
 import PrntNFTMarketplace from '../../ethereum/PrntNFTMarketplace';
 import PrntNFT from '../../ethereum/build/PrntNFT.json'
 import PrntNFTFactory from '../../ethereum/PrntNFTFactory'
-// import PrntNFT from '../../ethereum/PrntNFT';
-// import PrntNFT from '../../ethereum/build/PrntNFT.json';
 
-const Art = ({creator}) => {
+import Modal from './Modal';
+import useModal from './useModal';
+
+
+const Art = () => {
     const {id} = useParams();
+
+    const {isShowing, toggle} = useModal();
     
-    const [prnt, setprnt] = useState(["","","","","","","",""])
-    const [account, setaccount] = useState("")
+    const [prnt, setprnt] = useState(["","","",[""],"","","",""])
+    const [totalOwners, settotalOwners] = useState(1)
+    const [account, setaccount] = useState(null)
+    // const [Account, setAccount] = useState("")
     const [status, setstatus] = useState("")
+    const [PRNT_NFT_MARKETPLACE, setPRNT_NFT_MARKETPLACE] = useState("")
+    const [listBids, setlistBids] = useState(null)
+    const [Loading, setLoading] = useState(false)
+    const [instance, setInstance] = useState();
+    const [isApproved, setIsApproved] = useState(false)
+
     //bytes32 for "Open"
     const open = "0x4f70656e00000000000000000000000000000000000000000000000000000000"
     //bytes32 from "Cancelled"
-    const cancelled = "0x43616e63656c6c65640000000000000000000000000000000000000000000000"
+    // const cancelled = "0x43616e63656c6c65640000000000000000000000000000000000000000000000"
 
     
 
     // console.log(id);
     const getPrnt = async () => {
         const accounts = await web3.eth.getAccounts();
+        console.log(accounts[0])
+        // setaccount(accounts[0])
+        setaccount(accounts[0])
+        console.log("account:",account);
         const prnt = await PrntNFTData.methods.getPrntByNFTAddress(id).call();
         const trade = await PrntNFTMarketplace.methods.getTrade(id).call();
-        // const status = trade.status.toString();
+        const PRNT_NFT_MARKETPLACE = await PrntNFTFactory.methods.prntNFTMarketplace().call();
+        setPRNT_NFT_MARKETPLACE(PRNT_NFT_MARKETPLACE);
         setstatus(trade.status);
-        console.log("status", status);
-
-        console.log(prnt)
-        console.log(typeof prnt[4])
-        // console.log(typeof parseInt(prnt[4]))
-        setaccount(accounts[0])
+        const instance = new web3.eth.Contract(
+            PrntNFT.abi,
+            id //PrntNFT address
+        );
+        setInstance(instance);
+        // console.log(prnt)
+        
         setprnt(prnt);
+        
+        const isApproved = await instance.methods.isApprovedForAll(accounts[0], PRNT_NFT_MARKETPLACE).call();
+        setIsApproved(isApproved)
+        const totalOwners = prnt[3].length;
+        settotalOwners(totalOwners);
         
     }
 
     useEffect(() => {
         getPrnt();
-    }, [status])
+    }, [account, isApproved])
 
     const onBuy = async (event) => {
         event.preventDefault();
         try{
-            // const instance = new web3.eth.Contract(
-            //     PrntNFT.abi,
-            //     id
-            // );
-
-            // const isApproved = await instance.methods.isApprovedForAll(prnt[3], "0x74a3F9166F311007086811B1cA469c563eB4D676").call();
-            // // const isApproved = await PrntNFT.methods.isApprovedForAll(prnt[3], "0x1d095Ce09b8Df62570D7Db99DCddF523EdA6521c").call();
-
-            // console.log(isApproved);
-
+            setLoading(true);
             await PrntNFTMarketplace.methods.buyPrntNFT(id)
             .send({
                 from: account,
                 value: prnt[4],
                 gas: "1000000" 
             })
-            alert(`Bought ${prnt.prntNFTName} NFT successfully`)
+            setLoading(false);
+            // alert(`Bought ${prnt.prntNFTName} NFT successfully`)
+            window.location.reload();
         } catch(err) {
             console.log(err);
+            setLoading(false)
             alert("Not enough funds.")
         }
     }
 
-    const onOpenTrade = async (event) => {
-        event.preventDefault();
-        try{
-            await PrntNFTMarketplace.methods.openTradeWhenCreateNewPrntNFT(id, 1, prnt[4])
-            .send({
-                from: account,
-            })
-        } catch(err) {
-            console.log(err);
-            alert("Trade can't be open")
-        }
-    }
-
-    const openTrade = async (event) => {
-        event.preventDefault();
-        try {
-            const PRNT_NFT_MARKETPLACE = await PrntNFTFactory.methods.prntNFTMarketplace().call();
-
-            const instance = new web3.eth.Contract(
-                PrntNFT.abi,
-                id //PrntNFT address
+    
+    useEffect(() => {
+        const listBids = prnt[3].map(address => {
+            return (
+                <Bids key={address} address = {address} title={address === prnt[3][0] ? "Created by" : "Owned by"} by={`@${address.slice(0,6)}....${address.slice(-7)}`} />
             );
-            alert("You have to give approval to the contract before opening NFT for trade")
-
-            await instance.methods.setApprovalForAll(
-                PRNT_NFT_MARKETPLACE,
-                true
-            ).send({
-                from: account
-            });
-            alert("Approval given, now you can open the NFT for trade")
-            await PrntNFTMarketplace.methods.openTrade(id, 1)
-            .send ({
-                from: account
-            })
-            alert("NFT open for trade")
-        } catch(err) {
-            console.log(err);
-            alert("trade can't be open")
-        }
-    }
+        })
+        listBids.reverse();
+        setlistBids(listBids);
+        
+    }, [prnt])
 
     return (
         <div>
@@ -124,16 +112,18 @@ const Art = ({creator}) => {
             {/* creator and owner */}
             <div className="det">
                 <div className="css-4cffwv">
-                    <Link to={`/artists/${creator}`}>
-                        <div className="css-1mitdaa">@{creator}</div>
+                    <Link to={`/artists/${prnt[3][0]}`}>
+                        <div className="css-1mitdaa">
+                            <p>@{`${prnt[3][0].slice(0,6)}....${prnt[3][0].slice(-7)}`}</p>
+                        </div>
                     </Link>
                 </div>
                 
                 <div className="css-ykl0r1">
                     <div className="css-yk10r2">
-                    <Link to={`/artists/${prnt[3]}`}>
+                    <Link to={`/artists/${prnt[3][totalOwners-1]}`}>
                         <div className="css-3ts36d">
-                            <p>@{`${prnt[3].slice(0,6)}....${prnt[3].slice(-7)}`}</p>
+                            <p>@{`${prnt[3][totalOwners-1].slice(0,6)}....${prnt[3][totalOwners-1].slice(-7)}`}</p>
                         </div>
                     </Link>
                     </div>
@@ -147,9 +137,9 @@ const Art = ({creator}) => {
                         
                         <h3>{prnt[1]}</h3>
                         <p>{prnt[2]}</p>
-                        <p>Animation and music created by Nacho </p>
+                        {/* <p>Animation and music created by Nacho </p>
                         <p>1400x1400</p>
-                        <p>30fps</p>
+                        <p>30fps</p> */}
                         
                     </div>
                     <div className="desc-1">
@@ -164,35 +154,49 @@ const Art = ({creator}) => {
                             <h3 style={{padding: "0px 10px"}}>{web3.utils.fromWei(prnt[4],'ether')} ETH</h3>
                         </div>
                         {
-                            (status === open && prnt[3] !== account)
+                            (status === open && prnt[3][totalOwners-1] !== account && prnt[3][0] !== account) /*if he is the owner buy button won't be shown*/
                             ? 
-                            <button className="btn" onClick={onBuy} >Buy</button>
+                            <button className="btn" onClick={onBuy} disabled={Loading}>
+                            {
+                                !Loading && <span>Buy</span>
+                            }   
+                            {
+                                Loading && <ReactLoading type="bubbles" height="30px" width="30px" />
+                            }
+                            </button>
                             :
                             null
                         }
                         {
-                            prnt[3] === account
+                            prnt[3][totalOwners-1] === account
                             ?
                             (
-                                status === cancelled
+                            
+                                status === open 
                                 ?
-                                <button className="btn" onClick = {openTrade} >Open for Trade</button>
-                                : 
-                                (
-                                    status !== open && status !== cancelled
-                                    ?
-                                    <button className="btn" onClick = {onOpenTrade} >Open for 1st Trade</button>
-                                    :
-                                    <p style={{color: "green"}}>**Opened for trade</p>
-                                )
+                                <p style={{color: "green"}}>**Opened for trade</p>
+                                :
+                                <>
+                                    <button className="btn" onClick = {toggle} disabled={Loading}>Trade</button>
+                                    <Modal 
+                                        isShowing={isShowing}
+                                        hide={toggle}
+                                        prnt={prnt}
+                                        id={id}
+                                        PRNT_NFT_MARKETPLACE={PRNT_NFT_MARKETPLACE}
+                                        instance={instance}
+                                        isApproved={isApproved}
+                                        account={account}
+                                        totalOwners={totalOwners}
+                                    />
+                                </>
                             )
                             :
                             null
-                            
                         }
                         
                         {
-                            (status !== open && prnt[3] !== account)
+                            (status !== open && prnt[3][totalOwners-1] !== account)
                             ?
                             <p style={{color: "red"}}>**Not open for trade</p>
                             :
@@ -201,23 +205,19 @@ const Art = ({creator}) => {
                           
                     </div>
                 </div>
+
+                {/* History */}
+
                 <div className="his-1">
                     <h2>History</h2>
                     <div className="bids-1">
-                        <Bids title="Created by" by={`@${creator}`} /> 
-                        <Bids title="Owned by" by={`@${prnt[3].slice(0,6)}....${prnt[3].slice(-7)}`} />
-                        <Bids />
-                        
+                        {listBids}
                     </div>
                 </div>
             </div>
             
         </div>
     )
-}
-
-Art.defaultProps = {
-    creator: "creator",
 }
 
 export default Art

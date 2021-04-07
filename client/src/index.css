@@ -41,6 +41,10 @@ body {
   list-style: none;
 }
 
+.nav-links .selected .link-1 {
+  box-shadow: inset 7px 7px 13px #e6e6e6, inset -7px -7px 13px #f4f4f4;
+}
+
 a {
   text-decoration: none;
 }
@@ -118,6 +122,8 @@ a:visited {
   text-decoration: none;
   font-size: 15px;
   font-family: inherit;
+  max-width: fit-content;
+  max-height: fit-content;
 }
 
 .btn:focus {

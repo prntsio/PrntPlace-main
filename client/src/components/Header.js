@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
-import {Link} from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 import MetaMaskOnboarding from '@metamask/onboarding'
 import web3 from '../ethereum/web3';
 // import logo from '../img/logo.jpg';
@@ -72,18 +72,10 @@ const Header = () => {
     
     window.addEventListener('DOMContentLoaded', initialize);
 
-    // const getUserAddress = async () => {
-    //     const accounts = await web3.eth.getAccounts();
-    //     setaccount(accounts[0])
-    // }
+    const refreshPage = async () => {
+        window.location.reload();   
+    }
 
-    // React.useEffect(() => {
-    //     getUserAddress();
-    //     return () => {
-    //         // cleanup
-    //     }
-    // }, [showConnect])
-    
 
     return (
         <header className='header'>
@@ -94,15 +86,28 @@ const Header = () => {
             </Link>
             
             <div className='nav-links'>
-                <Link to='/'>
+                <NavLink 
+                    exact
+                    to='/' 
+                    activeClassName="selected"
+                >
                     <h3 className="link-1">Home</h3>
-                </Link>
-                <Link to='/music'>
+                </NavLink>
+                <NavLink 
+                    exact
+                    to='/music'
+                    activeClassName="selected"
+                >
                     <h3 className="link-1">Music</h3>
-                </Link>   
-                <Link to='/artists'>
+                </NavLink>   
+                <NavLink 
+                    exact
+                    to='/artists'
+                    activeClassName="selected"
+                >
+                    
                     <h3 className="link-1">Artists</h3>
-                </Link>
+                </NavLink>
             </div>
             <div>
             { 
@@ -111,8 +116,12 @@ const Header = () => {
                 <button className="btn" id="connect wallet">Connect Wallet</button> 
                 : 
                 <div className="profile-links">
-                    <Link to={`/artists/${account}`}><h4 className="link-2" >Profile</h4></Link> 
-                    <Link to='/create'><h4 className="link-2">+Create</h4></Link>
+                    <div onClick={refreshPage}>
+                        <Link to={`/artists/${account}`}><h4 className="link-2" >Profile</h4></Link> 
+                    </div>
+                    <div>
+                        <Link to='/create'><h4 className="link-2">+Create</h4></Link>
+                    </div>
                 </div>
             }
             </div>

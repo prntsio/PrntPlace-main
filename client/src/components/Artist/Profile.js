@@ -1,4 +1,5 @@
 import React from 'react'
+import profile from '../../img/default-profile.jpg';
 
 const Profile = ({name, username, ethAddress, Id}) => {
     const address = ethAddress.slice(0,6)+"....."+ethAddress.slice(-7);
@@ -7,7 +8,7 @@ const Profile = ({name, username, ethAddress, Id}) => {
         <div>
             <div className="profile-desc">
                 <div className="pic-1">
-                    
+                    <img src={profile} alt='' />
                 </div>
                 <div className="details-1">
                     <div>

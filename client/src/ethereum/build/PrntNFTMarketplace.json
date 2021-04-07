@@ -122,6 +122,69 @@
 			"constant": true,
 			"inputs": [
 				{
+					"internalType": "address",
+					"name": "owner",
+					"type": "address"
+				}
+			],
+			"name": "getCollections",
+			"outputs": [
+				{
+					"components": [
+						{
+							"internalType": "contract PrntNFT",
+							"name": "prntNFT",
+							"type": "address"
+						},
+						{
+							"internalType": "string",
+							"name": "prntNFTName",
+							"type": "string"
+						},
+						{
+							"internalType": "string",
+							"name": "prntNFTSymbol",
+							"type": "string"
+						},
+						{
+							"internalType": "address[]",
+							"name": "ownerAddress",
+							"type": "address[]"
+						},
+						{
+							"internalType": "uint256",
+							"name": "prntPrice",
+							"type": "uint256"
+						},
+						{
+							"internalType": "string",
+							"name": "ipfsHashOfPrnt",
+							"type": "string"
+						},
+						{
+							"internalType": "string",
+							"name": "status",
+							"type": "string"
+						},
+						{
+							"internalType": "uint256",
+							"name": "reputation",
+							"type": "uint256"
+						}
+					],
+					"internalType": "struct PrntNFTDataObjects.Prnt[]",
+					"name": "",
+					"type": "tuple[]"
+				}
+			],
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"constant": true,
+			"inputs": [
+				{
 					"internalType": "uint256",
 					"name": "prntId",
 					"type": "uint256"

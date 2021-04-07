@@ -19,7 +19,7 @@ const Card = ({imageUrl, title, price, username}) => {
                 </div>
             </div>
             <div className='card-body'>
-                <b style={{margin: "10px"}}>Current bid: {price}</b>
+                <b style={{margin: "10px"}}>Worth: {price}</b>
                 {/* <button className='btn'>Buy</button>
                 <button className='btn'>Sell</button> */}
             </div>

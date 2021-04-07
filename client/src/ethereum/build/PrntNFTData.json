@@ -7,6 +7,42 @@
 			"type": "constructor"
 		},
 		{
+			"constant": false,
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "artist",
+					"type": "address"
+				}
+			],
+			"name": "addArtist",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"payable": false,
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"constant": true,
+			"inputs": [],
+			"name": "getAllArtists",
+			"outputs": [
+				{
+					"internalType": "address[]",
+					"name": "",
+					"type": "address[]"
+				}
+			],
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
 			"constant": true,
 			"inputs": [],
 			"name": "getAllPrnts",
@@ -29,9 +65,9 @@
 							"type": "string"
 						},
 						{
-							"internalType": "address",
+							"internalType": "address[]",
 							"name": "ownerAddress",
-							"type": "address"
+							"type": "address[]"
 						},
 						{
 							"internalType": "uint256",
@@ -92,9 +128,9 @@
 							"type": "string"
 						},
 						{
-							"internalType": "address",
+							"internalType": "address[]",
 							"name": "ownerAddress",
-							"type": "address"
+							"type": "address[]"
 						},
 						{
 							"internalType": "uint256",
@@ -155,9 +191,9 @@
 							"type": "string"
 						},
 						{
-							"internalType": "address",
+							"internalType": "address[]",
 							"name": "ownerAddress",
-							"type": "address"
+							"type": "address[]"
 						},
 						{
 							"internalType": "uint256",
@@ -256,11 +292,6 @@
 					"internalType": "string",
 					"name": "prntNFTSymbol",
 					"type": "string"
-				},
-				{
-					"internalType": "address",
-					"name": "ownerAddress",
-					"type": "address"
 				},
 				{
 					"internalType": "uint256",

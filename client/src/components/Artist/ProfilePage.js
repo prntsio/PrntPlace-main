@@ -14,7 +14,7 @@ const ProfilePage = () => {
         <div >
             <Profile ethAddress={id} />
             <div className="creations-collections">
-                <Nav />
+                <Nav id={id} />
                 <Switch>
                     <Route path='/artists/:id' exact component={Creations} />
                     <Route path='/artists/:id/collections' exact component={Collections} />

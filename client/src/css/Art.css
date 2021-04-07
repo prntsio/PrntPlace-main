@@ -102,6 +102,22 @@
   /* box-shadow: 3px 3px 8px #d9d9d9, -4px -4px 8px #cccccc; */
 }
 
+.css-1mitdaa p {
+  background: linear-gradient(
+    110.78deg,
+    #76e650 -1.13%,
+    #f9d649 15.22%,
+    #f08e35 32.09%,
+    #ec5157 48.96%,
+    #ff18bd 67.94%,
+    #1a4bff 85.34%,
+    #62d8f9 99.57%
+  );
+  background-clip: inherit;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .css-1mitdaa:hover {
   box-shadow: inset 7px 7px 14px #bababa, inset -7px -7px 14px #ffffff;
 }
@@ -143,14 +159,15 @@
 .css-3ts36d p {
   background: linear-gradient(
     110.78deg,
-    #76e650 -1.13%,
-    #f9d649 15.22%,
-    #f08e35 32.09%,
+    #62d8f9 5.13%,
+    #1a4bff 15.22%,
+    #ff18bd 32.09%,
     #ec5157 48.96%,
-    #ff18bd 67.94%,
-    #1a4bff 85.34%,
-    #62d8f9 99.57%
+    #f08e35 67.94%,
+    #f9d649 85.34%,
+    #76e650 99.57%
   );
+  
   background-clip: inherit;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

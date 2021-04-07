@@ -1,23 +1,27 @@
 import React, {useState} from 'react'
+import ReactLoading from 'react-loading';
 import "../../css/Create.css";
 import web3 from '../../ethereum/web3';
 import ipfs from '../../ethereum/ipfs';
 import PrntNFTFactory from '../../ethereum/PrntNFTFactory';
-import PrntNFT from '../../ethereum/build/PrntNFT.json';
 
 const Create = () => {
-    //QmdVNMtnpT2DennGSKcwqpriU7t84kAfwXEcdBc74uryBi
-    const [name, setname] = useState("")
-    const [symbol, setsymbol] = useState("")
-    const [price, setprice] = useState("")
+    const [name, setname] = useState("");
+    const [symbol, setsymbol] = useState("");
+    const [price, setprice] = useState("");
     const [ipfsHash, setipfsHash] = useState(null);
     const [buffer, setbuffer] = useState('');
-    const [accounts, setaccounts] = useState([])
+    const [accounts, setaccounts] = useState([]);
+    const [Loading, setLoading] = useState(false);
+    const [Upload, setUpload] = useState(false);
+    const [fileName, setFileName] = useState("");
 
     const captureFile = (e) => {
         e.stopPropagation()
         e.preventDefault()
         const file = e.target.files[0]
+        console.log(file);
+        setFileName(file.name)
         let reader = new window.FileReader()
         reader.readAsArrayBuffer(file)
         reader.onloadend = () => convertToBuffer(reader)
@@ -32,31 +36,33 @@ const Create = () => {
 
     const onSendIpfs = async (e) => {
         e.preventDefault();
+        setUpload(true);
+       
         const accounts = await web3.eth.getAccounts();
         setaccounts(accounts);
-       
-        // ipfsHash = ipfsHash;
+    
         console.log('Sending from Metamask account: ' + accounts[0]);
-        console.log(ipfsHash);
+        
         await ipfs.files.add(buffer, (err, result) => {
             if(err){
-                console.error(err);
+                console.log(err);
+                setUpload(false);
+                alert("Problem uploading files..", err)
+                window.location.reload();
                 return
             }
-            alert("NFT Created(Hash Value): " + result[0].hash);
-            console.log(err,ipfsHash);
-            //   this.setState({ ipfsHash:ipfsHash[0].hash });
-            setipfsHash(result[0].hash)
-        }) 
-    }; 
+            setUpload(false);
+            // alert("NFT Created(Hash Value): " + result[0].hash);
+            setipfsHash(result[0].hash);
+            console.log(ipfsHash);
+        })
+    }
 
     const onCreateNewNFT = async (event) => {
         event.preventDefault();
+        setLoading(true);
         try{
-            const PRNT_NFT_MARKETPLACE = await PrntNFTFactory.methods.prntNFTMarketplace().call();
-            // console.log(PRNT_NFT_MARKETPLACE);
-
-            const prntNFT = await PrntNFTFactory.methods.createNewPrntNFT(
+            await PrntNFTFactory.methods.createNewPrntNFT(
                 name, 
                 symbol, 
                 web3.utils.toWei(price,'ether'),
@@ -64,43 +70,53 @@ const Create = () => {
             ).send({
                 from: accounts[0]
             });
-            console.log(prntNFT)
-            alert("You need to give approval to the contract for life time concerns for the trading of your NFT.")
-            
-            const instance = new web3.eth.Contract(
-                PrntNFT.abi,
-                prntNFT.events[0].address
-            );
-
-            await instance.methods.setApprovalForAll(
-                PRNT_NFT_MARKETPLACE,
-                true
-            ).send({
-                from: accounts[0]
-            });
-
-            alert("NFT minted successfully and NFT marketplace approved to handle owner stuffs.!")
+            setLoading(false);
+            // alert("NFT minted successfully!")
+            window.location.reload();
         } catch(err) {
             console.log(err);
-            alert ("Enter values correctly.")
+            setLoading(false);
+            alert ("Enter values correctly.",err)
         }
     }
 
     return (
         <div className="full-details">
             <div className="upload-box">
-                <h2 style={{margin: "10px 50px 10px 50px"}}>Mint NFTS</h2>
-                <div className="upload-file">
-                    <div className="upload-text">
-                        <h3>Upload File</h3>
-                    </div>
-                    <div className="choose-file">
-                        <form onSubmit={onSendIpfs}>
-                            <input type="file" onChange={captureFile} />
-                            <button type="submit" className="btn">Upload</button>
-                        </form>
-                    </div>
-                </div>
+                <h2 style={{margin: "10px 50px 10px 50px"}}>Create NFTS</h2>
+
+                {
+                    !ipfsHash
+                    ?
+                    (
+                        <div className="upload-file">
+                            <div className="upload-text">
+                                <h3>Upload File</h3>
+                            </div>
+                            <div className="choose-file">
+                                <form onSubmit={onSendIpfs}>
+                                    <input type="file" accept="image/*" onChange={captureFile} />
+                                    <button type="submit" className="btn" disabled={Upload} >
+                                    {
+                                        !Upload && <span>Upload</span>
+                                    }   
+                                    {
+                                        Upload && <ReactLoading type={'bubbles'} height={30} width={30} />
+                                    } 
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    )
+                    :
+                    (
+                        <div className="upload-file">
+                            <h1 style={{color: "#25ef25db"}}>File Uploaded!</h1>
+                            <span>{fileName}</span>
+                            <h4 style={{marginTop: "40px"}}>Please enter rest details...</h4>
+                        </div>
+                    )
+                }
             </div>
             <div className="nft-details">
                 <form onSubmit={onCreateNewNFT} >
@@ -111,7 +127,14 @@ const Create = () => {
                     <h2>Price</h2>
                     <input type="text" value={price} onChange={(e) => setprice(e.target.value)} />
                     <br/>
-                    <button type="submit" className="btn" >Mint</button>
+                    <button type="submit" className="btn" disabled={Loading} >
+                    {
+                        Loading && <ReactLoading type={'bubbles'} height={30} width={30} />
+                    }
+                    {
+                        !Loading && <span>Create</span>
+                    }           
+                    </button>
                 </form>
             </div>
         </div>
