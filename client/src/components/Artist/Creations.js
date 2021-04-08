@@ -28,7 +28,7 @@ const Creations = () => {
                             title={`# ${prnt[1]} - ${prnt[2]}`}
                             username={`${prnt[3][0].slice(0,6)}....${prnt[3][0].slice(-7,-1)}`}
                             price={`${web3.utils.fromWei(prnt[4],'ether')} ETH`}
-                            imageUrl={`https://ipfs.io/ipfs/${prnt[5]}`}
+                            imageUrl={`https://ipfs.io/ipfs/${prnt[6]}`}
                         />
                     </Link>
                 </div>

@@ -12,6 +12,8 @@ import Create from './components/Artist/Create';
 import "./App.css";
 import Footer from "./components/Footer";
 
+// const pinata = require('../src/ethereum/pinata');
+
 const App = () => {
   return (
     <BrowserRouter>

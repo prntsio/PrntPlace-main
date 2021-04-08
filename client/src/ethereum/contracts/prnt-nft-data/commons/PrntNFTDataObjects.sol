@@ -11,7 +11,8 @@ contract PrntNFTDataObjects {
         string prntNFTSymbol;
         address[] ownerAddress;
         uint prntPrice;
-        string ipfsHashOfPrnt;
+        string videoHash;
+        string imageHash;
         string status;  /// "Open" or "Cancelled"
         uint256 reputation;
     }

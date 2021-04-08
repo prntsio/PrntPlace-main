@@ -21,7 +21,7 @@ const Artworks = () => {
                             title={`# ${items[1]} - ${items[2]}`}
                             username={`${items[3][0].slice(0,6)}....${items[3][0].slice(-7,-1)}`}
                             price={`${web3.utils.fromWei(items[4],'ether')} ETH`}
-                            imageUrl={`https://ipfs.io/ipfs/${items[5]}`}
+                            imageUrl={`https://ipfs.io/ipfs/${items[6]}`}
                         />
                     </Link>
                 </div>

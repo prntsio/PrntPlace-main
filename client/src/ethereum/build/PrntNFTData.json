@@ -76,7 +76,12 @@
 						},
 						{
 							"internalType": "string",
-							"name": "ipfsHashOfPrnt",
+							"name": "videoHash",
+							"type": "string"
+						},
+						{
+							"internalType": "string",
+							"name": "imageHash",
 							"type": "string"
 						},
 						{
@@ -139,7 +144,12 @@
 						},
 						{
 							"internalType": "string",
-							"name": "ipfsHashOfPrnt",
+							"name": "videoHash",
+							"type": "string"
+						},
+						{
+							"internalType": "string",
+							"name": "imageHash",
 							"type": "string"
 						},
 						{
@@ -202,7 +212,12 @@
 						},
 						{
 							"internalType": "string",
-							"name": "ipfsHashOfPrnt",
+							"name": "videoHash",
+							"type": "string"
+						},
+						{
+							"internalType": "string",
+							"name": "imageHash",
 							"type": "string"
 						},
 						{
@@ -300,7 +315,12 @@
 				},
 				{
 					"internalType": "string",
-					"name": "ipfsHashOfPrnt",
+					"name": "videoHash",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "imageHash",
 					"type": "string"
 				},
 				{
@@ -353,7 +373,12 @@
 				},
 				{
 					"internalType": "string",
-					"name": "_ipfsHashOfPrnt",
+					"name": "_videoHash",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "_imageHash",
 					"type": "string"
 				}
 			],

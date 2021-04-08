@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from 'react'
+// import { ReactVideo, ReactAudio, YoutubePlayer } from "reactjs-media";
+import ReactPlayer from 'react-player';
 import "../../css/Art.css";
 import {Link, useParams} from 'react-router-dom';
 import ReactLoading from 'react-loading';
@@ -53,7 +55,7 @@ const Art = () => {
             id //PrntNFT address
         );
         setInstance(instance);
-        // console.log(prnt)
+        console.log(prnt)
         
         setprnt(prnt);
         
@@ -106,7 +108,17 @@ const Art = () => {
             {/* art piece */}
             <div className="art-c">
                 <div className="image-c">
-                    <img src={`https://ipfs.io/ipfs/${prnt[5]}`} alt="" />
+                    {/* <img src={`https://ipfs.io/ipfs/${prnt[6]}`} alt="" /> */}
+                    <ReactPlayer
+                        config={{ file: { attributes: { controlsList: 'nodownload' } } }}
+                        // Disable right click
+                        onContextMenu={e => e.preventDefault()}
+                        className="video-player"
+                        controls
+                        url = {`https://ipfs.io/ipfs/${prnt[5]}`}
+                        onError={() => console.log('onError callback')}
+                    />
+                        
                 </div>
             </div>
             {/* creator and owner */}

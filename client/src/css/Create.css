@@ -4,19 +4,41 @@
   justify-items: center;
 }
 
+.uploads {
+  box-shadow: 26px 26px 22px #e6ebf1, -20px -20px 18px #e8ecf1;
+  /* box-shadow: inset 26px 26px 22px #e5eaef, inset -20px -20px 18px #f1f1f1; */
+  border-radius: 20px;
+  margin: 20px 20px;
+}
+
 .upload-file {
-  margin: 10px 20px;
-  height: 200px;
+  margin: 12px 12px;
+  height: fit-content;
   width: 700px;
-  border-radius: 5px;
-  box-shadow: 26px 26px 22px #e4e5e6, -20px -20px 18px #f1f1f1;
+  padding: 50px 10px;
+  border-radius: 20px;
+  /* box-shadow: 26px 26px 22px #e4e5e6, -20px -20px 18px #f1f1f1; */
+  /* box-shadow: inset 26px 26px 22px #e5eaef, inset -20px -20px 18px #f1f1f1; */
+  box-shadow: inset 5px 5px 22px #e0e9f3, inset -20px -20px 18px #eaeff1;
   display: grid;
   align-content: center;
   justify-items: center;
 }
 
 .upload-text {
-  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+
+.choose-file form {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(2,1fr);
+  align-items: center;
+}
+
+.choose-file form input {
+  /* justify-self: center; */
+  padding-left: 60px;
 }
 
 .nft-details {

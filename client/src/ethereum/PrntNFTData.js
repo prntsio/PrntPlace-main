@@ -13,7 +13,8 @@ const instance = new web3.eth.Contract(
     // '0x8a75dE3283daDc2046a0De52435a8a6bd4577C5B'
     // '0xaD480891894c7b01F47198C11E0e77738EF948f0'
     // '0x93e36D6e7897C332bBe1402a5A34acb234b3af5F' //artists not added yet
-    '0x240dCc57cb3e7443eAd1A446Db97974F92DA342a'
+    // '0x240dCc57cb3e7443eAd1A446Db97974F92DA342a'
+    '0xf8bbaDaa46570b033f753922757516b785fc5e63'
 
 );
 

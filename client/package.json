@@ -5,12 +5,16 @@
   "dependencies": {
     "@metamask/onboarding": "^1.0.0",
     "axios": "^0.21.1",
+    "form-data": "^4.0.0",
+    "fs": "0.0.1-security",
     "ipfs-api": "^26.1.2",
     "react": "16.11.0",
     "react-dom": "16.11.0",
     "react-loading": "^2.0.3",
+    "react-player": "^2.9.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.2.0",
+    "reactjs-media": "^1.5.1",
     "web3": "1.2.2"
   },
   "scripts": {

@@ -158,7 +158,12 @@
 						},
 						{
 							"internalType": "string",
-							"name": "ipfsHashOfPrnt",
+							"name": "videoHash",
+							"type": "string"
+						},
+						{
+							"internalType": "string",
+							"name": "imageHash",
 							"type": "string"
 						},
 						{

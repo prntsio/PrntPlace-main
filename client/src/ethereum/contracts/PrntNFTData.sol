@@ -24,7 +24,8 @@ contract PrntNFTData is PrntNFTDataStorages {
         string memory _prntNFTSymbol, 
         address _ownerAddress, 
         uint _prntPrice, 
-        string memory _ipfsHashOfPrnt
+        string memory _videoHash,
+        string memory _imageHash
     ) public returns (bool) {
         /// Save metadata of a prntNFT of prnt
         address[] memory ownerAddress;
@@ -36,7 +37,8 @@ contract PrntNFTData is PrntNFTDataStorages {
             _prntNFTSymbol,
             ownerAddress,
             _prntPrice,
-            _ipfsHashOfPrnt,
+            _videoHash,
+            _imageHash,
             "Open",
             0
         );
