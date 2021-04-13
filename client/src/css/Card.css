@@ -11,6 +11,7 @@
   box-shadow: 7px 7px 14px #e4e4e4, -7px -7px 14px #f6f6f6;
   overflow: auto;
   cursor: pointer;
+  z-index: 1;
 }
 
 .card-container:hover {

@@ -2,8 +2,10 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, 310px);
   grid-gap: 40px;
+  justify-items: center;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 }
 
 .artist-card-container {
@@ -19,6 +21,7 @@
   cursor: pointer;
   justify-content: center;
   display: grid;
+  justify-items: center;
 }
 
 .artist-card-container:hover {
@@ -32,7 +35,6 @@
   background: rgb(224, 224, 224);
   border-radius: 100px;
   box-shadow: 3px 3px 7px #bebce4, -1px -2px 30px #fffff2;
-  
   /* box-shadow: inset 3px 3px 7px #bebce4, inset -1px -2px 30px #fffff2; */
   /* box-shadow: inset 7px 7px 14px #bababa, inset -7px -7px 14px #d5d5d5; */
 }

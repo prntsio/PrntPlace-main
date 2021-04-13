@@ -8,7 +8,7 @@ const axios = require("axios");
 const FormData = require("form-data");
 
 
-const Create = () => {
+const Create = ({account}) => {
 
     const pinataApiKey = "f93140e3bc18599a0b0c";
     const pinataSecretApiKey = "bbe6b854ec4b3d3023597d051bc473200e94edc091fb42d5f793380f02e3b269";
@@ -19,7 +19,7 @@ const Create = () => {
     // const [ipfsHash, setipfsHash] = useState(null);
     const [videoHash, setVideoHash] = useState(null)
     const [imageHash, setImageHash] = useState(null)
-    const [accounts, setaccounts] = useState([]);
+    // const [accounts, setaccounts] = useState([]);
     const [Loading, setLoading] = useState(false);
     const [videoUpload, setvideoUpload] = useState(false);
     const [imageUpload, setimageUpload] = useState(false);
@@ -34,8 +34,8 @@ const Create = () => {
         data.append("file", selectedVideo);
         // alert("pinning to pinata")
         try{
-            const accounts = await web3.eth.getAccounts();
-            setaccounts(accounts);
+            // const accounts = await web3.eth.getAccounts();
+            // setaccounts(accounts);
             const res = await axios.post(url, data, {
                 maxContentLength: "Infinity", 
                 headers: {
@@ -63,8 +63,8 @@ const Create = () => {
         data.append("file", selectedImage);
         // alert("pinning to pinata")
         try{
-            const accounts = await web3.eth.getAccounts();
-            setaccounts(accounts);
+            // const accounts = await web3.eth.getAccounts();
+            // setaccounts(accounts);
             const res = await axios.post(url, data, {
                 maxContentLength: "Infinity", 
                 headers: {
@@ -95,7 +95,7 @@ const Create = () => {
                 videoHash,
                 imageHash
             ).send({
-                from: accounts[0]
+                from: account
             });
             setLoading(false);
             // alert("NFT minted successfully!")

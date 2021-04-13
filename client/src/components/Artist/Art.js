@@ -15,14 +15,14 @@ import Modal from './Modal';
 import useModal from './useModal';
 
 
-const Art = () => {
+const Art = ({account}) => {
     const {id} = useParams();
 
     const {isShowing, toggle} = useModal();
     
     const [prnt, setprnt] = useState(["","","",[""],"","","",""])
     const [totalOwners, settotalOwners] = useState(1)
-    const [account, setaccount] = useState(null)
+    // const [account, setaccount] = useState(null)
     // const [Account, setAccount] = useState("")
     const [status, setstatus] = useState("")
     const [PRNT_NFT_MARKETPLACE, setPRNT_NFT_MARKETPLACE] = useState("")
@@ -40,29 +40,36 @@ const Art = () => {
 
     // console.log(id);
     const getPrnt = async () => {
-        const accounts = await web3.eth.getAccounts();
-        console.log(accounts[0])
-        // setaccount(accounts[0])
-        setaccount(accounts[0])
-        console.log("account:",account);
-        const prnt = await PrntNFTData.methods.getPrntByNFTAddress(id).call();
-        const trade = await PrntNFTMarketplace.methods.getTrade(id).call();
-        const PRNT_NFT_MARKETPLACE = await PrntNFTFactory.methods.prntNFTMarketplace().call();
-        setPRNT_NFT_MARKETPLACE(PRNT_NFT_MARKETPLACE);
-        setstatus(trade.status);
-        const instance = new web3.eth.Contract(
-            PrntNFT.abi,
-            id //PrntNFT address
-        );
-        setInstance(instance);
-        console.log(prnt)
-        
-        setprnt(prnt);
-        
-        const isApproved = await instance.methods.isApprovedForAll(accounts[0], PRNT_NFT_MARKETPLACE).call();
-        setIsApproved(isApproved)
-        const totalOwners = prnt[3].length;
-        settotalOwners(totalOwners);
+        try {
+            // const accounts = await web3.eth.getAccounts();
+            // console.log(accounts[0])
+            // setaccount(accounts[0])
+            // setaccount(accounts[0])
+            console.log("account:",account);
+            const prnt = await PrntNFTData.methods.getPrntByNFTAddress(id).call();
+            const trade = await PrntNFTMarketplace.methods.getTrade(id).call();
+            const PRNT_NFT_MARKETPLACE = await PrntNFTFactory.methods.prntNFTMarketplace().call();
+            setPRNT_NFT_MARKETPLACE(PRNT_NFT_MARKETPLACE);
+            setstatus(trade.status);
+            const instance = new web3.eth.Contract(
+                PrntNFT.abi,
+                id //PrntNFT address
+            );
+            setInstance(instance);
+            console.log(prnt)
+            
+            setprnt(prnt);
+            
+            if(account) {
+                const isApproved = await instance.methods.isApprovedForAll(account, PRNT_NFT_MARKETPLACE).call();
+                setIsApproved(isApproved)
+            }
+            
+            const totalOwners = prnt[3].length;
+            settotalOwners(totalOwners);
+        } catch (err) {
+            alert('You need to install metamask and connect your wallet.');
+        }
         
     }
 
@@ -110,12 +117,18 @@ const Art = () => {
                 <div className="image-c">
                     {/* <img src={`https://ipfs.io/ipfs/${prnt[6]}`} alt="" /> */}
                     <ReactPlayer
-                        config={{ file: { attributes: { controlsList: 'nodownload' } } }}
-                        // Disable right click
-                        onContextMenu={e => e.preventDefault()}
                         className="video-player"
                         controls
                         url = {`https://ipfs.io/ipfs/${prnt[5]}`}
+                        config={{ file: { 
+                            attributes: { 
+                                controlsList: 'nodownload' 
+                            } 
+                        }}}
+                        width="70vw"
+                        height="50vh"
+                        // Disable right click
+                        onContextMenu={e => e.preventDefault()}
                         onError={() => console.log('onError callback')}
                     />
                         
@@ -183,7 +196,6 @@ const Art = () => {
                             prnt[3][totalOwners-1] === account
                             ?
                             (
-                            
                                 status === open 
                                 ?
                                 <p style={{color: "green"}}>**Opened for trade</p>

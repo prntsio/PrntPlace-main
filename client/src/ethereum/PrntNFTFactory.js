@@ -1,5 +1,11 @@
-import web3 from './web3';
+// import web3 from './web3';
 import PrntNFTFactory from './build/PrntNFTFactory.json';
+import Web3 from 'web3';
+import web3 from './web3';
+
+// if(Web3.givenProvider){
+//     web3.setProvider()
+// }
 
 const instance = new web3.eth.Contract(
     PrntNFTFactory.abi,

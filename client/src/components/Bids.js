@@ -9,6 +9,7 @@ const Bids = ({title, by, address}) => {
             <div className="bid-by">
                 <h3>{title}</h3>
             </div>
+            <div className="gap-val" />
             <div className="bid-val">
                 <Link to={`/artists/${address}`} >
                     <p>{by}</p>

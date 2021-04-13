@@ -9,7 +9,7 @@ const Body = () => {
                 <img src={introImg} alt='' />
             </div>
             <div className="intro-content">
-                <h1 style={{padding: "10px 20px 20px 0px"}}>Imagine music as NFTS </h1>
+                <h1 style={{padding: "10px 0px 20px 0px"}}>Imagine music as NFTS </h1>
                 <Link to='/music'>
                     <button className='btn'>Explore Music</button>
                 </Link>

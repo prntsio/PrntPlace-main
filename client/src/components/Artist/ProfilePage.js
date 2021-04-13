@@ -1,5 +1,6 @@
 import React from 'react'
-import { BrowserRouter, Route, Switch, useParams } from "react-router-dom";
+import { BrowserRouter, Route, Switch, useParams} from "react-router-dom";
+import { createBrowserHistory } from 'history'
 import Profile from './Profile';
 import About from './About';
 import Creations from './Creations';
@@ -10,7 +11,7 @@ import "../../css/ProfilePage.css";
 const ProfilePage = () => {
     const {id} = useParams();
     return (
-        <BrowserRouter>
+        <BrowserRouter history={createBrowserHistory}>
         <div >
             <Profile ethAddress={id} />
             <div className="creations-collections">

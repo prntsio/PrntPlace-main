@@ -87,7 +87,7 @@ const Modal = ({isShowing, hide, prnt, id, PRNT_NFT_MARKETPLACE, instance, isApp
                                     </button>
                                 </>
                                 :
-                                <h2 style={{color: "green", alignSelf: "center", justifySelf: "center"}}>Approved!</h2>
+                                <h2 style={{color: "#a3d0d2db", alignSelf: "center", justifySelf: "center"}}>Approved!</h2>
                             }
                             
                         </div>

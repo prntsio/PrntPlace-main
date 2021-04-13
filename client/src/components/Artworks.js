@@ -15,7 +15,7 @@ const Artworks = () => {
         const listitems =  list.map((items) => {
             
             return  (
-                <div key={items[5]} >
+                <div key={items[6]} >
                     <Link to={`/music/${items[0]}`} >
                         <Card 
                             title={`# ${items[1]} - ${items[2]}`}

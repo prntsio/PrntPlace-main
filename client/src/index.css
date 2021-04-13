@@ -6,8 +6,25 @@
   padding: 0;
 }
 
+*::before, 
+*::after {
+    margin: 0; 
+    padding: 0;
+    box-sizing: inherit;
+  }
+
+*:focus {
+  outline: 0 !important;
+}
+
+html {
+  font-size: 62.5%; /*1rem = 10px*/
+  box-sizing: border-box;  
+}
+
 body {
   font-family: "Poppins", sans-serif;
+  font-size: 1.4rem;
   background-color: rgb(233, 239, 240);
 }
 
@@ -41,7 +58,19 @@ body {
   list-style: none;
 }
 
-.nav-links .selected .link-1 {
+/* .nav-links .selected .link-1 {
+  box-shadow: inset 7px 7px 13px #e6e6e6, inset -7px -7px 13px #f4f4f4;
+} */
+
+.lnk:hover {
+  box-shadow: inset 7px 7px 13px #e6e6e6, inset -7px -7px 13px #f4f4f4;
+}
+
+.selected .lnk {
+  box-shadow: inset 7px 7px 13px #e6e6e6, inset -7px -7px 13px #f4f4f4;
+}
+
+.selected .link-1 {
   box-shadow: inset 7px 7px 13px #e6e6e6, inset -7px -7px 13px #f4f4f4;
 }
 

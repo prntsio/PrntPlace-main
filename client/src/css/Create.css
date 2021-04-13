@@ -2,21 +2,22 @@
   display: grid;
   align-content: center;
   justify-items: center;
+  margin: 2vw 2vw;
 }
 
 .uploads {
   box-shadow: 26px 26px 22px #e6ebf1, -20px -20px 18px #e8ecf1;
   /* box-shadow: inset 26px 26px 22px #e5eaef, inset -20px -20px 18px #f1f1f1; */
   border-radius: 20px;
-  margin: 20px 20px;
+  margin: 2vw 2vw;
 }
 
 .upload-file {
-  margin: 12px 12px;
+  margin: 2vw 2vw;
   height: fit-content;
-  width: 700px;
-  padding: 50px 10px;
-  border-radius: 20px;
+  width: fit-content;
+  padding: 2.5vw 2vw;
+  border-radius: 10vw;
   /* box-shadow: 26px 26px 22px #e4e5e6, -20px -20px 18px #f1f1f1; */
   /* box-shadow: inset 26px 26px 22px #e5eaef, inset -20px -20px 18px #f1f1f1; */
   box-shadow: inset 5px 5px 22px #e0e9f3, inset -20px -20px 18px #eaeff1;
@@ -26,7 +27,7 @@
 }
 
 .upload-text {
-  padding-bottom: 20px;
+  padding-bottom: 3vw;
 }
 
 .choose-file form {
@@ -38,25 +39,26 @@
 
 .choose-file form input {
   /* justify-self: center; */
-  padding-left: 60px;
+  padding-left: 8vw;
 }
 
 .nft-details {
-  margin: 10px 0px;
+  margin: 1.33px 0px;
   display: grid;
   justify-content: center;
-  width: 1050px;
+  /* width: 139vw; */
   justify-items: start;
 }
 
 .nft-details input {
   background: rgb(232 237 238);
-  border-radius: 10px;
-  margin: 10px 0px;
+  border-radius: 1.33vw;
+  margin: 1.33vw 0px;
   border-color: aliceblue;
   font-size: larger;
   font-family: fantasy;
-  padding: 5px 10px;
+  padding: 0.8vw 1.33vw;
+  width: 43vw;
   box-shadow: none;
 }
 
@@ -66,6 +68,6 @@ input:focus {
 }
 
 .nft-details button {
-  margin-top: 20px;
+  margin-top: 2vw;
   margin-left: -0px;
 }
