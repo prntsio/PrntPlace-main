@@ -1,0 +1,50 @@
+{
+  "name": "client",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@metamask/onboarding": "^1.0.0",
+    "@walletconnect/web3-provider": "^1.4.1",
+    "axios": "^0.21.1",
+    "form-data": "^4.0.0",
+    "fs": "0.0.1-security",
+    "history": "^5.0.0",
+    "ipfs-api": "^26.1.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-icons": "^4.2.0",
+    "react-loading": "^2.0.3",
+    "react-player": "^2.9.0",
+    "react-pro-sidebar": "^0.6.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.2.0",
+    "reactjs-media": "^1.5.1",
+    "styled-components": "^5.2.3",
+    "use-wallet": "^0.8.1",
+    "web3": "1.2.2",
+    "web3connect": "^1.0.0-beta.33",
+    "web3modal": "^1.9.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {}
+}
