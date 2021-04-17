@@ -73,7 +73,7 @@
   display: flex;
   gap: 16px;
   position: relative;
-  z-index: 4;
+  z-index: 2;
   /* justify-content: center; */
 }
 

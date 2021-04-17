@@ -158,7 +158,7 @@ const Create = ({account}) => {
                         <div className="upload-file">
                             <div className="upload-text">
                                 <h3>Upload Thumbnail</h3>
-                                <p>Suggested image size: 302px x 280px</p>
+                                <p>We recommend image size to be 302px x 280px.</p>
                             </div>
                             <div className="choose-file">
                                 <form onSubmit={pinImageToIPFS}>
