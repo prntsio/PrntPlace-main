@@ -22,12 +22,15 @@
   overflow: hidden;
   height: 280px;
   background: rgb(214, 214, 214);
+  display: grid;
+
   /* border-radius: 10px; */
 }
 
 .img-container img {
-  height: 280px;
   width: 302px;
+  height: auto;
+  align-self: center;
 }
 
 .img-container img:hover {

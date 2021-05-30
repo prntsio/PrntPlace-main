@@ -189,7 +189,7 @@ const Header = ({account}) => {
                 to='/music' 
                 activeClassName="selected"
             >
-                <MobileNavbar.Item className="lnk">Music</MobileNavbar.Item>
+                <MobileNavbar.Item className="lnk">Music & More</MobileNavbar.Item>
             </NavLink>
             <NavLink 
                 exact
@@ -241,7 +241,7 @@ const Header = ({account}) => {
                 to='/music'
                 activeClassName="selected"
             >
-                <h3 className="link-1">Music</h3>
+                <h3 className="link-1">Music & More</h3>
             </NavLink>   
             <NavLink 
                 exact

@@ -14,7 +14,7 @@ const Home = () => {
                     margin: "10px 30px"
                 }}
             />
-            <h1 style={{margin: "20px 39px"}}>Featured Artworks</h1>
+            <h1 style={{margin: "20px 39px"}}>Featured</h1>
             <Artworks />
 
         </div>

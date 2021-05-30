@@ -28,6 +28,9 @@
 
 .upload-text {
   padding-bottom: 3vw;
+  display: grid;
+  grid-gap: 1vh;
+  justify-items: center;
 }
 
 .choose-file form {
