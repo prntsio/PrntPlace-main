@@ -15,6 +15,7 @@ import Footer from "./components/Footer";
 import Web3Modal from 'web3modal'
 import web3 from "./ethereum/web3";
 import WalletConnectProvider from "@walletconnect/web3-provider";
+
 import { WalletLink } from "walletlink";
 
 import coinbaseLogo from './img/coinbase-wallet-logo.svg';
@@ -58,6 +59,7 @@ const web3Modal = new Web3Modal({
   cacheProvider: true, // optional
   providerOptions // required
 });
+
 
 
 
@@ -132,7 +134,6 @@ const App = () => {
         <div 
           style={{
             // marginLeft: "0px",
-          // right: "15px",
             // top: "15px",
             position: "absolute",
             zIndex: "1",
