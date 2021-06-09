@@ -1,61 +1,78 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-*::before, 
+*::before,
 *::after {
-    margin: 0; 
+    margin: 0;
     padding: 0;
     box-sizing: inherit;
-  }
+}
 
 *:focus {
-  outline: 0 !important;
+    outline: 0 !important;
 }
 
 html {
-  font-size: 62.5%; /*1rem = 10px*/
-  box-sizing: border-box;  
+    font-size: 62.5%; /*1rem = 10px*/
+    box-sizing: border-box;
 }
 
 body {
-  font-family: "Poppins", sans-serif;
-  font-size: 1.4rem;
-  background-color: rgb(233, 239, 240);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4rem;
+    background-color: rgb(233, 239, 240);
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+a {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+a:focus {
+    -webkit-tap-highlight-color: transparent;
 }
 
 .container {
-  max-width: inherit;
-  margin: 30px auto;
-  overflow: auto;
-  min-height: inherit;
-  border: 1px solid steelblue;
-  padding: 30px;
-  border-radius: 5px;
+    max-width: inherit;
+    margin: 30px auto;
+    overflow: auto;
+    min-height: inherit;
+    border: 1px solid steelblue;
+    padding: 30px;
+    border-radius: 5px;
 }
 
 .header {
-  margin: 20px 40px 30px 20px;
-  width: inherit;
-  height: 65px;
-  padding: 10px 10px 10px 30px;
-  display: flex;
-  color: white;
-  align-items: center;
-  justify-content: space-around;
+    margin: 0px 0px 30px 0px;
+    width: inherit;
+    height: 65px;
+    padding: 10px 10px 10px 30px;
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .nav-links {
-  width: 80%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-items: center;
-  list-style: none;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style: none;
 }
 
 /* .nav-links .selected .link-1 {
@@ -63,55 +80,84 @@ body {
 } */
 
 .lnk:hover {
-  box-shadow: inset 7px 7px 13px #e6e6e6, inset -7px -7px 13px #f4f4f4;
+    box-shadow: inset 7px 7px 13px #e6e6e6, inset -7px -7px 13px #f4f4f4;
 }
 
 .selected .lnk {
-  box-shadow: inset 7px 7px 13px #e6e6e6, inset -7px -7px 13px #f4f4f4;
+    box-shadow: inset 7px 7px 13px #e6e6e6, inset -7px -7px 13px #f4f4f4;
 }
 
 .selected .link-1 {
-  box-shadow: inset 7px 7px 13px #e6e6e6, inset -7px -7px 13px #f4f4f4;
+    box-shadow: inset 7px 7px 13px #e6e6e6, inset -7px -7px 13px #f4f4f4;
 }
 
 a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 .link-1 {
-  padding: 12px 24px;
-  border-radius: 24px;
-  /* background: #d6dddd;
+    padding: 12px 24px;
+    border-radius: 24px;
+    /* background: #d6dddd;
   box-shadow: 4px 5px 8px #bdbde8, 6px 8px 7px #efeff1; */
-  background: rgb(233 239 240);
-  box-shadow: 5px 5px 13px #e6e6e6, -5px -5px 13px #f4f4f4;
+    background: rgb(233 239 240);
+    /* box-shadow: 5px 5px 13px #e6e6e6, -5px -5px 13px #f4f4f4; */
+    box-shadow: 5px 5px 10px #dbe1e2, -5px -5px 10px #f7fdfe;
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in;
 }
 
 .link-1:hover {
-  /* color: white; */
-  /* box-shadow: inset 7px 7px 14px #bababa, inset -7px -7px 14px #ffffff; */
-  box-shadow: inset 7px 7px 13px #e6e6e6, inset -7px -7px 13px #f4f4f4;
+    box-shadow: inset 5px 5px 10px #dbe1e2, inset -5px -5px 10px #f7fdfe;
+    transform: scale(1.05, 1.05);
 }
 
 .profile-links {
-  display: flex;
+    display: flex;
+    /* margin: 10px 0px; */
+    padding: 15px 0px;
+    right: 1vw;
+    top: 1.45vh;
+    position: fixed;
+}
+
+.prnts-logo {
+    transition-property: all;
+    transition-duration: 0.7s;
+    transition-timing-function: ease-in;
+}
+
+.prnts-logo:hover {
+    transform: scale(1.1, 1.1);
 }
 
 .link-2 {
-  margin: 0px 10px;
-  padding: 12px 16px;
-  border-radius: 10px;
-  background: rgb(0, 0, 0);
-  /* background: #1c1c1c; */
-  /* box-shadow: 9px 9px 6px #1b1b1b, -9px -9px 6px #1d1d1d; */
-  color: rgb(255, 255, 255);
-  letter-spacing: 1px;
-  font-size: smaller;
-  /* box-shadow: 5px 5px 13px #e6e6e6, -5px -5px 13px #f4f4f4; */
+    margin: 0px 10px;
+    padding: 12px 16px;
+
+    /* background: rgb(0, 0, 0); */
+    background: #e9eff0;
+    border-radius: 20px;
+    box-shadow: inset 5px 5px 10px #dbe1e2, inset -5px -5px 10px #f7fdfe;
+    /* background: #1c1c1c; */
+    /* box-shadow: 9px 9px 6px #1b1b1b, -9px -9px 6px #1d1d1d; */
+    color: rgb(0, 0, 0);
+    letter-spacing: 1px;
+    /* font-size: smaller; */
+    font-weight: bolder;
+    /* box-shadow: 5px 5px 13px #e6e6e6, -5px -5px 13px #f4f4f4; */
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in;
 }
 
 .link-2:hover {
-  color: rgb(198, 198, 198);
+    /* color: rgb(198, 198, 198); */
+    /* box-shadow: inset 5px 5px 10px #dbe1e2,
+            inset -5px -5px 10px #f7fdfe; */
+    /* color: white; */
+    transform: scale(1.05, 1.05);
 }
 
 /* .link a {
@@ -120,13 +166,13 @@ a {
 
 /* unvisited link */
 a:link {
-  color: rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
 }
 
 /* visited link */
 a:visited {
-  color: rgb(0, 0, 0);
-  /* box-shadow: inset 7px 7px 13px #e6e6e6, inset -7px -7px 13px #f4f4f4; */
+    color: rgb(0, 0, 0);
+    /* box-shadow: inset 7px 7px 13px #e6e6e6, inset -7px -7px 13px #f4f4f4; */
 }
 
 /* mouse over link */
@@ -140,87 +186,96 @@ a:visited {
 } */
 
 .btn {
-  display: inline-block;
-  background: #000;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  margin: 5px;
-  border-radius: 5px;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 15px;
-  font-family: inherit;
-  max-width: fit-content;
-  max-height: fit-content;
+    display: block;
+    background: #e9eff0;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    box-shadow: 5px 5px 10px #dbe1e2, -5px -5px 10px #f7fdfe;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 15px;
+    font-family: inherit;
+    max-width: fit-content;
+    max-height: fit-content;
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in;
+}
+
+.btn:hover {
+    box-shadow: inset 5px 5px 10px #dbe1e2, inset -5px -5px 10px #f7fdfe;
+    cursor: pointer;
+    transform: scale(1.05, 1.05);
 }
 
 .btn:focus {
-  outline: none;
+    outline: none;
 }
 
 .btn:active {
-  transform: scale(0.98);
+    transform: scale(0.98);
 }
 
 .btn-block {
-  display: block;
-  width: 100%;
+    display: block;
+    width: 100%;
 }
 
 .task {
-  background: #f4f4f4;
-  margin: 5px;
-  padding: 10px 20px;
-  cursor: pointer;
+    background: #f4f4f4;
+    margin: 5px;
+    padding: 10px 20px;
+    /* cursor: pointer; */
 }
 
 .task.reminder {
-  border-left: 5px solid green;
+    border-left: 5px solid green;
 }
 
 .task h3 {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .add-form {
-  margin-bottom: 40px;
+    margin-bottom: 40px;
 }
 
 .form-control {
-  margin: 20px 0;
+    margin: 20px 0;
 }
 
 .form-control label {
-  display: block;
+    display: block;
 }
 
 .form-control input {
-  width: 100%;
-  height: 40px;
-  margin: 5px;
-  padding: 3px 7px;
-  font-size: 17px;
+    width: 100%;
+    height: 40px;
+    margin: 5px;
+    padding: 3px 7px;
+    font-size: 17px;
 }
 
 .form-control-check {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .form-control-check label {
-  flex: 1;
+    flex: 1;
 }
 
 .form-control-check input {
-  flex: 2;
-  height: 20px;
+    flex: 2;
+    height: 20px;
 }
 
 footer {
-  margin-top: 30px;
-  text-align: center;
+    margin-top: 30px;
+    text-align: center;
 }

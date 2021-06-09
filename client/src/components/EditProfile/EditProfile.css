@@ -1,0 +1,19 @@
+.edit-profile-container {
+    height: fit-content;
+    width: fit-content;
+    padding: 3vw 10vw;
+    border-radius: 66px;
+    background: #e9eff0;
+    box-shadow: inset 5px 5px 12px #dbe1e2, inset -5px -5px 12px #f7fdfe;
+    margin: 5vh auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+}
+
+.save {
+    margin-top: 20px;
+    display: flex;
+}

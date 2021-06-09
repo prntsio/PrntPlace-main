@@ -1,4 +1,4 @@
-pragma solidity ^0.5.3;
+pragma solidity ^0.5.0;
 pragma experimental ABIEncoderV2;
 import { PrntNFT } from "./PrntNFT.sol";
 
@@ -7,14 +7,16 @@ contract PrntNFTDataObjects {
 
     struct Prnt {  /// [Key]: index of array
         PrntNFT prntNFT;
-        string prntNFTName;
-        string prntNFTSymbol;
-        address[] ownerAddress;
+        string tokenUri;
+        uint256 royalties;
+    }
+    
+    mapping(address => mapping(uint256 => Token)) public tokensByAddress;
+    
+    struct Token {
         uint prntPrice;
-        string videoHash;
-        string imageHash;
-        string status;  /// "Open" or "Cancelled"
-        uint256 reputation;
+        address[] ownerAddress;
+        string status;
     }
     
     struct Artists {

@@ -1,0 +1,102 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 310px);
+    grid-gap: 40px;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    padding: 30px 0px;
+}
+
+.artist-card-container {
+    padding: 14px;
+    width: 240px;
+    height: 310px;
+    position: relative;
+    border-radius: 18px;
+    /* background: #e0e0ea; */
+    background: #e9eff0;
+    /* box-shadow: 3px 3px 7px #d8d8d8, -1px -2px 30px #fffff2; */
+    box-shadow: 5px 5px 12px #dbe1e2, -5px -5px 12px #f7fdfe;
+    overflow: auto;
+    cursor: pointer;
+    justify-content: center;
+    display: grid;
+    justify-items: center;
+    transition-property: all;
+    transition-duration: 1s;
+}
+
+.artist-card-container:hover {
+    /* box-shadow: inset 7px 7px 14px #d5d5d5, inset -7px -7px 14px #eeeeee; */
+    box-shadow: inset 5px 5px 12px #dbe1e2, inset -5px -5px 12px #f7fdfe;
+    /* zoom: 101%; */
+    /* transition-delay: 50ms; */
+    transform: scale(1.08, 1.08);
+}
+
+.artist-img-border {
+    height: 180px;
+    width: 180px;
+    padding: 10px;
+    box-shadow: inset 5px 5px 12px #dbe1e2, inset -5px -5px 12px #f7fdfe;
+    border-radius: 50%;
+}
+
+.artist-img-container {
+    overflow: hidden;
+    width: 160px;
+    height: 160px;
+    background: #e9eff0;
+    border-radius: 100px;
+    display: grid;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+.artist-img-container img {
+    width: 180px;
+    height: 180px;
+    box-shadow: 5px 5px 12px #dbe1e2, -5px -5px 12px #f7fdfe;
+}
+
+/* .artist-img-container:hover {
+  box-shadow: inset 7px 7px 14px #bababa, inset -7px -7px 14px #d5d5d5;
+} */
+
+/* Name */
+.artist-title {
+    overflow: auto;
+    padding: 10px 0px 0px 0px;
+    height: 50px;
+}
+
+.user {
+    overflow: hidden;
+    padding: 0px;
+    height: 30px;
+    display: flex;
+}
+
+.desc {
+    overflow: hidden;
+    height: 50px;
+    display: flex;
+}
+
+.user-name {
+    background: linear-gradient(
+        110.78deg,
+        #1a4bff 15.22%,
+        #62d8f9 32.09%,
+        #ec5157 48.96%,
+        #ff18bd 67.94%,
+        #f9d649 85.34%,
+        #f08e35 99.57%
+    );
+    background-clip: inherit;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

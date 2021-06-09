@@ -1,12 +1,11 @@
-pragma solidity ^0.5.3;
+pragma solidity ^0.5.0;
 pragma experimental ABIEncoderV2;
-import { SafeMath } from "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v2.5.1/contracts/math/SafeMath.sol";
+import { SafeMath } from "@openzeppelin/contracts/math/SafeMath.sol";
 import { Strings } from "./Strings.sol";
 import { PrntNFTFactoryStorages } from "./PrntNFTFactoryStorages.sol";
 import { PrntNFT } from "./PrntNFT.sol";
 import { PrntNFTMarketplace } from "./PrntNFTMarketPlace.sol";
 import { PrntNFTData } from "./PrntNFTData.sol";
-
 
 /**
  * @notice - This is the factory contract for a NFT of prnt
@@ -16,7 +15,6 @@ contract PrntNFTFactory is PrntNFTFactoryStorages {
     using Strings for string;    
 
     address[] public prntAddresses;
-    // PrntNFTData.Prnt[] public _prnts;
     mapping(address => PrntNFTData.Prnt[]) creations;
     address PRNT_NFT_MARKETPLACE;
 
@@ -32,28 +30,21 @@ contract PrntNFTFactory is PrntNFTFactoryStorages {
     /**
      * @notice - Create a new prntNFT when a seller (owner) upload a prnt onto IPFS
      */
-    function createNewPrntNFT(string memory nftName, string memory nftSymbol, uint prntPrice, string memory videoHash, string memory imageHash) public returns (bool) {
-        address owner = msg.sender;  /// [Note]: Initial owner of prntNFT is msg.sender
-        string memory tokenURI = getTokenURI(videoHash);  /// [Note]: IPFS hash + URL
-        PrntNFT prntNFT = new PrntNFT(owner, nftName, nftSymbol, tokenURI, prntPrice);
+    function createNewPrntNFT(string memory nftName, string memory nftSymbol, string memory tokenURI, uint prntPrice, uint quantity, uint256 royalties) public {
+        address owner = msg.sender;  /// [Note]: Initial owner of prntNFT is msg.sender - creator
+        tokenURI = getTokenURI(tokenURI);  /// [Note]: IPFS hash + URL
+        PrntNFT prntNFT = new PrntNFT(owner, nftName, nftSymbol, tokenURI, quantity);
         prntAddresses.push(address(prntNFT));
         
-        
-        // creations[owner] = 
-        
-        // creations[owner].push(prntNFT);
-        // prntNFTMarketplace.saveCreationsAddress(owner,creations[owner]);
-        
         /// Save metadata of a prntNFT created
-        prntNFTData.saveMetadataOfPrntNFT(prntAddresses, prntNFT, nftName, nftSymbol, msg.sender, prntPrice, videoHash, imageHash);
-        prntNFTData.updateStatus(prntNFT, "Open");
+        prntNFTData.saveMetadataOfPrntNFT(prntAddresses, prntNFT, tokenURI, quantity, msg.sender, prntPrice, royalties);
         
         PrntNFTData.Prnt memory prnt = prntNFTData.getPrntByNFTAddress(prntNFT);
         creations[owner].push(prnt);
         
         prntNFTData.addArtist(msg.sender);
 
-        emit PrntNFTCreated(msg.sender, prntNFT, nftName, nftSymbol, prntPrice, videoHash);
+        emit PrntNFTCreated(msg.sender, prntNFT, nftName, nftSymbol, prntPrice, tokenURI);
     }
     
     function getCreations(address owner) public view returns (PrntNFTData.Prnt[] memory) {

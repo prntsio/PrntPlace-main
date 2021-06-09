@@ -1,0 +1,91 @@
+.intro {
+    margin: 5vw auto;
+    padding: 8vh 20px;
+    background: rgb(233 239 240);
+    /* box-shadow:  12px 12px 24px #d5d5d5,-12px -12px 24px #ebebeb; */
+    box-shadow: 5px 5px 12px #dbe1e2, -5px -5px 12px #f7fdfe;
+    border-radius: 10px;
+    /* width: 600px; */
+    max-height: 600px;
+    /* height: fit-content; */
+    width: 90%;
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 420px);
+    grid-gap: 10px;
+    align-items: center;
+    justify-items: center;
+    /* justify-self: center; */
+    justify-content: center;
+    align-content: center;
+    overflow: hidden;
+    /* overflow-wrap: inherit; */
+}
+
+.intro-img {
+    max-width: 420px;
+    width: 62vw;
+    height: auto;
+    display: grid;
+    /* justify-items: center; */
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 5px 5px 12px #e0e5e6, inset -5px -5px 12px #f2f9fa;
+    border-radius: 10px;
+    padding: 1vh 1vw;
+}
+
+.intro-img img {
+    max-width: 400px;
+    width: 60vw;
+    height: auto;
+    align-self: center;
+    box-shadow: 5px 5px 12px #e0e5e6, -5px -5px 12px #f2f9fa;
+    border-radius: 10px;
+}
+
+.intro-content {
+    font-size: medium;
+    /* justify-self: center; */
+    /* align-self: center; */
+    width: 300px;
+    padding: 5px 30px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.gradient-underline {
+    font-size: 28px;
+    font-weight: bolder;
+    justify-self: center;
+    margin: 20px 0px;
+    transition: all 0.5s ease-in;
+    padding-bottom: 0.5px;
+    position: relative;
+    text-decoration: none;
+}
+
+.gradient-underline::after {
+    /* background: #f00; */
+    background: linear-gradient(
+        110.78deg,
+        /* to right, */ transparent 0%,
+        /* #76e650 30%, */ #f9d649 20%,
+        #f08e35 35%,
+        #ec5157 40%,
+        /* #ff18bd 50%, */ #1a4bff 65%,
+        #62d8f9 80%,
+        transparent 100%
+    );
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+}
+
+.gradient-underline:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}

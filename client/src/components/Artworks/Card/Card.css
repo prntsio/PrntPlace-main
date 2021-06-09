@@ -1,0 +1,110 @@
+.card-container {
+  /* padding: 14px; */
+  width: 270px;
+  height: 430px;
+  position: relative;
+  border-radius: 18px;
+  background: rgb(233 239 240);
+  box-shadow: 5px 5px 12px #dbe1e2,
+           -5px -5px 12px #f7fdfe;
+  overflow: auto;
+  cursor: pointer;
+  transition-property: all;
+  transition-duration: 1s;
+  transition-timing-function: ease-in;
+}
+
+.card-container:hover{
+  box-shadow: inset 5px 5px 12px #dbe1e2,
+            inset -5px -5px 12px #f7fdfe;
+  border-radius: 30px;
+  transform: scale(1.1,1.1);
+}
+/* 
+.artist-link {
+  transition-property: all;
+  transition-duration: 10s;
+  transition-timing-function: ease-in;
+} */
+
+.card-container:hover .artist-link {
+  background: linear-gradient(
+    110.78deg,
+    #76e650 -1.13%,
+    #f9d649 15.22%,
+    #f08e35 32.09%,
+    #ec5157 48.96%,
+    #ff18bd 67.94%,
+    #1a4bff 85.34%,
+    #62d8f9 99.57%
+  );
+  background-clip: inherit;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.img-container {
+  overflow: hidden;
+  height: 270px;
+  padding: 10px 10px;
+  /* background: rgb(233, 239, 240); */
+  display: grid;
+  background: #e9eff0;
+  box-shadow: inset 5px 5px 12px #dbe1e2,
+            inset -5px -5px 12px #f7fdfe;
+  border-radius: 18px;
+}
+
+.img-container img {
+  max-height: 250px;
+  max-width: 250px;
+  /* height: auto; */
+  align-self: center;
+  justify-self: center;
+  overflow: hidden;
+  border-radius: 5px;
+  /* width: auto; */
+}
+
+/* 
+.img-container img:hover {
+  box-shadow: inset 7px 7px 14px #bababa;
+  box-shadow: inset 5px 5px 12px #dbe1e2,
+            inset -5px -5px 12px #f7fdfe;
+} */
+
+.card-title {
+  margin: 20px 0px 10px 0px;
+}
+
+.card-title b {
+  overflow: auto;
+  margin-top: 20px;
+  padding: 10px;
+  height: fit-content;
+}
+
+.card-title .creator {
+  overflow: auto;
+  padding: 10px;
+  height: fit-content;
+  display: flex;
+}
+
+.card-body {
+  overflow: auto;
+  height: fit-content;
+  display: grid;
+  gap: 5px;
+  padding-left: 10px;
+  margin-top: 5px;
+}
+
+.grid-style {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 310px);
+  grid-gap: 49px;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+}

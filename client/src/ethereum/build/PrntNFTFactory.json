@@ -50,29 +50,28 @@
 					"type": "string"
 				},
 				{
+					"internalType": "string",
+					"name": "tokenURI",
+					"type": "string"
+				},
+				{
 					"internalType": "uint256",
 					"name": "prntPrice",
 					"type": "uint256"
 				},
 				{
-					"internalType": "string",
-					"name": "videoHash",
-					"type": "string"
+					"internalType": "uint256",
+					"name": "quantity",
+					"type": "uint256"
 				},
 				{
-					"internalType": "string",
-					"name": "imageHash",
-					"type": "string"
+					"internalType": "uint256",
+					"name": "royalties",
+					"type": "uint256"
 				}
 			],
 			"name": "createNewPrntNFT",
-			"outputs": [
-				{
-					"internalType": "bool",
-					"name": "",
-					"type": "bool"
-				}
-			],
+			"outputs": [],
 			"payable": false,
 			"stateMutability": "nonpayable",
 			"type": "function"
@@ -155,42 +154,12 @@
 						},
 						{
 							"internalType": "string",
-							"name": "prntNFTName",
-							"type": "string"
-						},
-						{
-							"internalType": "string",
-							"name": "prntNFTSymbol",
-							"type": "string"
-						},
-						{
-							"internalType": "address[]",
-							"name": "ownerAddress",
-							"type": "address[]"
-						},
-						{
-							"internalType": "uint256",
-							"name": "prntPrice",
-							"type": "uint256"
-						},
-						{
-							"internalType": "string",
-							"name": "videoHash",
-							"type": "string"
-						},
-						{
-							"internalType": "string",
-							"name": "imageHash",
-							"type": "string"
-						},
-						{
-							"internalType": "string",
-							"name": "status",
+							"name": "tokenUri",
 							"type": "string"
 						},
 						{
 							"internalType": "uint256",
-							"name": "reputation",
+							"name": "royalties",
 							"type": "uint256"
 						}
 					],

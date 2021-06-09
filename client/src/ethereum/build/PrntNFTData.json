@@ -1,12 +1,6 @@
 {
 	"abi" : [
 		{
-			"inputs": [],
-			"payable": false,
-			"stateMutability": "nonpayable",
-			"type": "constructor"
-		},
-		{
 			"constant": false,
 			"inputs": [
 				{
@@ -16,6 +10,144 @@
 				}
 			],
 			"name": "addArtist",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"payable": false,
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"constant": false,
+			"inputs": [
+				{
+					"internalType": "address[]",
+					"name": "_prntAddresses",
+					"type": "address[]"
+				},
+				{
+					"internalType": "contract PrntNFT",
+					"name": "_prntNFT",
+					"type": "address"
+				},
+				{
+					"internalType": "string",
+					"name": "tokenUri",
+					"type": "string"
+				},
+				{
+					"internalType": "uint256",
+					"name": "quantity",
+					"type": "uint256"
+				},
+				{
+					"internalType": "address",
+					"name": "_ownerAddress",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_prntPrice",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "royalties",
+					"type": "uint256"
+				}
+			],
+			"name": "saveMetadataOfPrntNFT",
+			"outputs": [],
+			"payable": false,
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"payable": false,
+			"stateMutability": "nonpayable",
+			"type": "constructor"
+		},
+		{
+			"constant": false,
+			"inputs": [
+				{
+					"internalType": "contract PrntNFT",
+					"name": "_prntNFT",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_tokenId",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_prntPrice",
+					"type": "uint256"
+				}
+			],
+			"name": "updateNewPrntPriceForTrade",
+			"outputs": [],
+			"payable": false,
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"constant": false,
+			"inputs": [
+				{
+					"internalType": "contract PrntNFT",
+					"name": "_prntNFT",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "tokenId",
+					"type": "uint256"
+				},
+				{
+					"internalType": "address",
+					"name": "_newOwner",
+					"type": "address"
+				}
+			],
+			"name": "updateOwnerOfPrntNFT",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"payable": false,
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"constant": false,
+			"inputs": [
+				{
+					"internalType": "contract PrntNFT",
+					"name": "_prntNFT",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "tokenId",
+					"type": "uint256"
+				},
+				{
+					"internalType": "string",
+					"name": "_newStatus",
+					"type": "string"
+				}
+			],
+			"name": "updateStatus",
 			"outputs": [
 				{
 					"internalType": "bool",
@@ -56,42 +188,12 @@
 						},
 						{
 							"internalType": "string",
-							"name": "prntNFTName",
-							"type": "string"
-						},
-						{
-							"internalType": "string",
-							"name": "prntNFTSymbol",
-							"type": "string"
-						},
-						{
-							"internalType": "address[]",
-							"name": "ownerAddress",
-							"type": "address[]"
-						},
-						{
-							"internalType": "uint256",
-							"name": "prntPrice",
-							"type": "uint256"
-						},
-						{
-							"internalType": "string",
-							"name": "videoHash",
-							"type": "string"
-						},
-						{
-							"internalType": "string",
-							"name": "imageHash",
-							"type": "string"
-						},
-						{
-							"internalType": "string",
-							"name": "status",
+							"name": "tokenUri",
 							"type": "string"
 						},
 						{
 							"internalType": "uint256",
-							"name": "reputation",
+							"name": "royalties",
 							"type": "uint256"
 						}
 					],
@@ -108,64 +210,22 @@
 			"constant": true,
 			"inputs": [
 				{
+					"internalType": "contract PrntNFT",
+					"name": "_prntNFT",
+					"type": "address"
+				},
+				{
 					"internalType": "uint256",
-					"name": "index",
+					"name": "_tokenId",
 					"type": "uint256"
 				}
 			],
-			"name": "getPrnt",
+			"name": "getOwnerOfToken",
 			"outputs": [
 				{
-					"components": [
-						{
-							"internalType": "contract PrntNFT",
-							"name": "prntNFT",
-							"type": "address"
-						},
-						{
-							"internalType": "string",
-							"name": "prntNFTName",
-							"type": "string"
-						},
-						{
-							"internalType": "string",
-							"name": "prntNFTSymbol",
-							"type": "string"
-						},
-						{
-							"internalType": "address[]",
-							"name": "ownerAddress",
-							"type": "address[]"
-						},
-						{
-							"internalType": "uint256",
-							"name": "prntPrice",
-							"type": "uint256"
-						},
-						{
-							"internalType": "string",
-							"name": "videoHash",
-							"type": "string"
-						},
-						{
-							"internalType": "string",
-							"name": "imageHash",
-							"type": "string"
-						},
-						{
-							"internalType": "string",
-							"name": "status",
-							"type": "string"
-						},
-						{
-							"internalType": "uint256",
-							"name": "reputation",
-							"type": "uint256"
-						}
-					],
-					"internalType": "struct PrntNFTDataObjects.Prnt",
-					"name": "_prnt",
-					"type": "tuple"
+					"internalType": "address[]",
+					"name": "ownerAddress",
+					"type": "address[]"
 				}
 			],
 			"payable": false,
@@ -192,42 +252,12 @@
 						},
 						{
 							"internalType": "string",
-							"name": "prntNFTName",
-							"type": "string"
-						},
-						{
-							"internalType": "string",
-							"name": "prntNFTSymbol",
-							"type": "string"
-						},
-						{
-							"internalType": "address[]",
-							"name": "ownerAddress",
-							"type": "address[]"
-						},
-						{
-							"internalType": "uint256",
-							"name": "prntPrice",
-							"type": "uint256"
-						},
-						{
-							"internalType": "string",
-							"name": "videoHash",
-							"type": "string"
-						},
-						{
-							"internalType": "string",
-							"name": "imageHash",
-							"type": "string"
-						},
-						{
-							"internalType": "string",
-							"name": "status",
+							"name": "tokenUri",
 							"type": "string"
 						},
 						{
 							"internalType": "uint256",
-							"name": "reputation",
+							"name": "royalties",
 							"type": "uint256"
 						}
 					],
@@ -300,37 +330,12 @@
 				},
 				{
 					"internalType": "string",
-					"name": "prntNFTName",
-					"type": "string"
-				},
-				{
-					"internalType": "string",
-					"name": "prntNFTSymbol",
+					"name": "tokenUri",
 					"type": "string"
 				},
 				{
 					"internalType": "uint256",
-					"name": "prntPrice",
-					"type": "uint256"
-				},
-				{
-					"internalType": "string",
-					"name": "videoHash",
-					"type": "string"
-				},
-				{
-					"internalType": "string",
-					"name": "imageHash",
-					"type": "string"
-				},
-				{
-					"internalType": "string",
-					"name": "status",
-					"type": "string"
-				},
-				{
-					"internalType": "uint256",
-					"name": "reputation",
+					"name": "royalties",
 					"type": "uint256"
 				}
 			],
@@ -339,111 +344,34 @@
 			"type": "function"
 		},
 		{
-			"constant": false,
+			"constant": true,
 			"inputs": [
 				{
-					"internalType": "address[]",
-					"name": "_prntAddresses",
-					"type": "address[]"
-				},
-				{
-					"internalType": "contract PrntNFT",
-					"name": "_prntNFT",
-					"type": "address"
-				},
-				{
-					"internalType": "string",
-					"name": "_prntNFTName",
-					"type": "string"
-				},
-				{
-					"internalType": "string",
-					"name": "_prntNFTSymbol",
-					"type": "string"
-				},
-				{
 					"internalType": "address",
-					"name": "_ownerAddress",
+					"name": "",
 					"type": "address"
 				},
 				{
 					"internalType": "uint256",
-					"name": "_prntPrice",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"name": "tokensByAddress",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "prntPrice",
 					"type": "uint256"
 				},
 				{
 					"internalType": "string",
-					"name": "_videoHash",
-					"type": "string"
-				},
-				{
-					"internalType": "string",
-					"name": "_imageHash",
+					"name": "status",
 					"type": "string"
 				}
 			],
-			"name": "saveMetadataOfPrntNFT",
-			"outputs": [
-				{
-					"internalType": "bool",
-					"name": "",
-					"type": "bool"
-				}
-			],
 			"payable": false,
-			"stateMutability": "nonpayable",
-			"type": "function"
-		},
-		{
-			"constant": false,
-			"inputs": [
-				{
-					"internalType": "contract PrntNFT",
-					"name": "_prntNFT",
-					"type": "address"
-				},
-				{
-					"internalType": "address",
-					"name": "_newOwner",
-					"type": "address"
-				}
-			],
-			"name": "updateOwnerOfPrntNFT",
-			"outputs": [
-				{
-					"internalType": "bool",
-					"name": "",
-					"type": "bool"
-				}
-			],
-			"payable": false,
-			"stateMutability": "nonpayable",
-			"type": "function"
-		},
-		{
-			"constant": false,
-			"inputs": [
-				{
-					"internalType": "contract PrntNFT",
-					"name": "_prntNFT",
-					"type": "address"
-				},
-				{
-					"internalType": "string",
-					"name": "_newStatus",
-					"type": "string"
-				}
-			],
-			"name": "updateStatus",
-			"outputs": [
-				{
-					"internalType": "bool",
-					"name": "",
-					"type": "bool"
-				}
-			],
-			"payable": false,
-			"stateMutability": "nonpayable",
+			"stateMutability": "view",
 			"type": "function"
 		}
 	]

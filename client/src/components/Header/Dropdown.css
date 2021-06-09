@@ -1,0 +1,87 @@
+.dropbtn {
+  /* background-color: #4CAF50; */
+  color: rgb(49, 47, 47);
+  margin-left: -10px;
+  /* padding: 16px; */
+  /* font-size: 16px; */
+  /* border: none; */
+  z-index: 0;
+}
+
+.dropbtn:hover {
+  cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  /* position: relative; */
+  display: inline-block;
+  border-radius: 10px;
+  /* right: 4px; */
+  /* left: 0; */
+  /* margin-right: 10px; */
+  z-index: 1000;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  /* position: absolute; */
+  position: fixed;
+  /* position: sticky; */
+  /* left: 10; */
+  border-radius: 10px;
+  background: #e9eff0;
+  box-shadow: 5px 5px 12px #dbe1e2, -5px -5px 12px #f7fdfe;
+  min-width: 160px;
+  /* box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); */
+  /* border-radius: 10px; */
+  /* box-shadow: 12px 24px #d5d5d5,-12px -12px 24px #ebebeb; */
+  z-index: 1000;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  text-decoration: none;
+  display: block;
+  margin: 10px 10px;
+  box-shadow: inset 5px 5px 12px #dbe1e2, inset -5px -5px 12px #f7fdfe;
+  border-radius: 20px;
+  transition-property: all;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in;
+}
+
+.dropdown-content a:hover {
+  transform: scale(1.05,1.05);
+}
+
+.connect-btn {
+  color: black;
+  background-color: rgb(233 239 240);
+  /* margin: 5px 5px; */
+  padding: 10px 10px;
+  border: none;
+  outline: none;
+  /* font-weight: bold; */
+  /* letter-spacing: 1.5px; */
+  /* font-weight: 600; */
+  font-family: Poppins;
+  z-index: 1000;
+}
+
+.connect-btn:hover {
+  color: white;
+  outline: none;
+}
+
+/* Change color of dropdown links on hover */
+/* .dropdown-content .connect-btn:hover {color: rgb(255, 255, 255);} */
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: grid;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+/* .dropdown:hover .dropbtn {background-color: rgb(233 239 240);} */
