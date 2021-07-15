@@ -22,7 +22,7 @@ const ProfilePage = ({ account, isMobile }) => {
     const { id } = useParams();
 
     const getUserData = async () => {
-        const url = `https://prnts-users.herokuapp.com/api/users/${id}`;
+        const url = `https://prnts-music-nfts.herokuapp.com/api/users/${id}`;
         const res = await axios.get(url);
         setUser(res.data);
     };

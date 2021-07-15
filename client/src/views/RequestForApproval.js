@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactLoading from 'react-loading';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
@@ -61,21 +61,45 @@ const RequestForApproval = ({ account }) => {
         other: '',
     });
     const [description, setDescription] = useState('');
+    const [doRequestExist, setDoRequestExist] = useState(false);
     const [Loading, setLoading] = useState(false);
 
     let history = useHistory();
 
-    const sendApprovalRequest = async () => {
+    const getRequestData = async () => {
+        const url = `https://prnts-music-nfts.herokuapp.com/api/approvalRequests/${account}`;
+        try {
+            const { data } = await axios.get(url);
+            setLinks(data.request.links);
+            setDescription(data.request.description);
+            setDoRequestExist(true);
+        } catch (err) {}
+    };
+
+    useEffect(() => {
+        getRequestData();
+    }, []);
+
+    const sendApprovalRequest = async (e) => {
+        e.preventDefault();
         setLoading(true);
-        const url = 'http://192.168.100.13:5000/api/approvalRequests';
+        const url_post =
+            'https://prnts-music-nfts.herokuapp.com/api/approvalRequests';
+        const url_get = `https://prnts-music-nfts.herokuapp.com/api/approvalRequests/${account}`;
         const ApprovalRequest = {
             id: account,
             links,
             description,
         };
         try {
-            const res = await axios.post(url, ApprovalRequest);
-            console.log(res.data);
+            if (doRequestExist) {
+                const res = await axios.patch(url_get, ApprovalRequest);
+                console.log(res);
+            } else {
+                const res = await axios.post(url_post, ApprovalRequest);
+            }
+
+            // console.log(res.data);
         } catch (err) {
             console.log(err);
             setLoading(false);
@@ -87,7 +111,7 @@ const RequestForApproval = ({ account }) => {
     return (
         <Container>
             <h2>Request for Approval</h2>
-            <Form>
+            <Form onSubmit={sendApprovalRequest}>
                 <Input
                     type="text"
                     placeholder="Twitter"
@@ -156,7 +180,7 @@ const RequestForApproval = ({ account }) => {
                     onChange={(e) => setDescription(e.target.value)}
                 />
 
-                <button className="btn" onClick={sendApprovalRequest}>
+                <button className="btn">
                     {Loading ? (
                         <ReactLoading type={'bubbles'} height={30} width={30} />
                     ) : (

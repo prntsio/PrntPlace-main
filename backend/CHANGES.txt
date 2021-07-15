@@ -1,0 +1,2 @@
+node -> nodemon
+config.js - dotenv config

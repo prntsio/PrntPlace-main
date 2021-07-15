@@ -101,7 +101,7 @@ const Create = ({ account, isMobile }) => {
             image: `https://ipfs.io/ipfs/${videoHash}`,
             imageHash: imageHash,
             // external_url: `http://prnts.netlify.app/music`,
-            background_color: '008080',
+            background_color: 'b2d8d8',
             attributes: [
                 {
                     display_type: 'number',

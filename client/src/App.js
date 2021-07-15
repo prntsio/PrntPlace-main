@@ -101,6 +101,23 @@ const App = () => {
         return () => window.removeEventListener('resize', handleResize);
     }, [IsMobile]);
 
+    useEffect(() => {
+        async function listenMMAccount() {
+            try {
+                window.ethereum.on('accountsChanged', async function () {
+                    // Time to reload your interface with accounts[0]!
+                    const account = await web3.eth.getAccounts();
+                    setaccount(account[0]);
+                    // accounts = await web3.eth.getAccounts();
+                    console.log(account);
+                });
+            } catch (err) {
+                console.log('Browser wallet not installed!');
+            }
+        }
+        listenMMAccount();
+    }, []);
+
     const onConnectWallet = async () => {
         console.log('connecting wallet...');
         console.log('cached provider', web3Modal.cachedProvider);
@@ -165,7 +182,7 @@ const App = () => {
     const [isApproved, setIsApproved] = useState(false);
 
     const getIsApproved = async () => {
-        const url = `http://192.168.100.13:5000/api/approvalRequests/${account}`;
+        const url = `https://prnts-music-nfts.herokuapp.com/api/approvalRequests/${account}/isApproved`;
         try {
             const res = await axios.get(url);
             setIsApproved(res.data);

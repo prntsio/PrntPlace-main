@@ -158,218 +158,222 @@ const Art = ({ account }) => {
     };
 
     return (
-        <div>
-            {/* <h1>Artwork display</h1> */}
-            {/* art piece */}
-            <div className="art-c">
-                <div className="image-c">
-                    {/* <img src={`https://ipfs.io/ipfs/${tokenURI.imageHash}`} alt="" /> */}
-                    <ReactPlayer
-                        className="video-player"
-                        controls
-                        // url={`https://ipfs.io/ipfs/${tokenURI.videoHash}`}
-                        url={tokenURI.image}
-                        config={{
-                            file: {
-                                attributes: {
-                                    controlsList: 'nodownload',
+        <>
+            <div style={{ maxWidth: '100vw' }}>
+                {/* <h1>Artwork display</h1> */}
+                {/* art piece */}
+                <div className="art-c">
+                    <div className="image-c">
+                        {/* <img src={`https://ipfs.io/ipfs/${tokenURI.imageHash}`} alt="" /> */}
+                        <ReactPlayer
+                            className="video-player"
+                            controls
+                            // url={`https://ipfs.io/ipfs/${tokenURI.videoHash}`}
+                            url={tokenURI.image}
+                            config={{
+                                file: {
+                                    attributes: {
+                                        controlsList: 'nodownload',
+                                    },
                                 },
-                            },
-                        }}
-                        width="70vw"
-                        height="50vh"
-                        // Disable right click
-                        onContextMenu={(e) => e.preventDefault()}
-                        onError={() => console.log('onError callback')}
-                    />
+                            }}
+                            width="70vw"
+                            height="50vh"
+                            // Disable right click
+                            onContextMenu={(e) => e.preventDefault()}
+                            onError={() => console.log('onError callback')}
+                        />
+                    </div>
                 </div>
-            </div>
-            {/* creator and owner */}
-            <div className="det">
-                <div className="css-4cffwv">
-                    <Link to={`/artists/${ownerArray[0]}`}>
-                        <div className="css-1mitdaa">
-                            <p>
-                                @
-                                {`${ownerArray[0].slice(
-                                    0,
-                                    6
-                                )}....${ownerArray[0].slice(-7)}`}
-                            </p>
-                        </div>
-                    </Link>
-                </div>
-
-                <div className="css-ykl0r1">
-                    <div className="css-yk10r2">
-                        <Link to={`/artists/${ownerArray[totalOwners - 1]}`}>
-                            <div className="css-3ts36d">
+                {/* creator and owner */}
+                <div className="det">
+                    <div className="css-4cffwv">
+                        <Link to={`/artists/${ownerArray[0]}`}>
+                            <div className="css-1mitdaa">
                                 <p>
                                     @
-                                    {`${ownerArray[totalOwners - 1].slice(
+                                    {`${ownerArray[0].slice(
                                         0,
                                         6
-                                    )}....${ownerArray[totalOwners - 1].slice(
-                                        -7
-                                    )}`}
+                                    )}....${ownerArray[0].slice(-7)}`}
                                 </p>
                             </div>
                         </Link>
                     </div>
+
+                    <div className="css-ykl0r1">
+                        <div className="css-yk10r2">
+                            <Link
+                                to={`/artists/${ownerArray[totalOwners - 1]}`}
+                            >
+                                <div className="css-3ts36d">
+                                    <p>
+                                        @
+                                        {`${ownerArray[totalOwners - 1].slice(
+                                            0,
+                                            6
+                                        )}....${ownerArray[
+                                            totalOwners - 1
+                                        ].slice(-7)}`}
+                                    </p>
+                                </div>
+                            </Link>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            {/* description & history */}
-            <div className="desc-his">
-                <div className="desc">
-                    <div className="desc-1">
-                        {/* <h2>Description</h2> */}
-                        <div
-                            style={{
-                                // padding: "10px 0px"
-                                display: 'grid',
-                                gridGap: '10px',
-                            }}
-                        >
+                {/* description & history */}
+                <div className="desc-his">
+                    <div className="desc">
+                        <div className="desc-1">
+                            {/* <h2>Description</h2> */}
+                            <div
+                                style={{
+                                    // padding: "10px 0px"
+                                    display: 'grid',
+                                    gridGap: '10px',
+                                }}
+                            >
+                                <div
+                                    style={{
+                                        display: 'flex',
+                                        gap: '2vw',
+                                        // flexDirection: 'row',
+                                        // flexWrap: 'wrap',
+                                        flexFlow: 'row wrap',
+                                        justifyContent: 'space-between',
+                                        alignItems: 'baseline',
+                                    }}
+                                >
+                                    <div>
+                                        <h3>{tokenURI.name}</h3>
+                                        <h4>{tokenURI.symbol}</h4>
+                                    </div>
+                                    <div className="editions-dropdown">
+                                        <h3>Edition</h3>
+                                        <select
+                                            // name="Editions"
+                                            value={edition}
+                                            onChange={selectEdition}
+                                        >
+                                            {/* <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option> */}
+                                            {listEditions}
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <span>{tokenURI.description}</span>
+                            </div>
+                            {/* <p>Animation and music created by Nacho </p>
+                        <p>1400x1400</p>
+                        <p>30fps</p> */}
+                        </div>
+                        <div className="desc-1">
                             <div
                                 style={{
                                     display: 'flex',
-                                    gap: '2vw',
-                                    // flexDirection: 'row',
-                                    // flexWrap: 'wrap',
-                                    flexFlow: 'row wrap',
-                                    justifyContent: 'space-between',
-                                    alignItems: 'baseline',
+                                    alignItems: 'center',
+                                    margin: '10px 0px 10px 5px',
                                 }}
                             >
-                                <div>
-                                    <h3>{tokenURI.name}</h3>
-                                    <h4>{tokenURI.symbol}</h4>
-                                </div>
-                                <div className="editions-dropdown">
-                                    <h3>Edition</h3>
-                                    <select
-                                        // name="Editions"
-                                        value={edition}
-                                        onChange={selectEdition}
-                                    >
-                                        {/* <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option> */}
-                                        {listEditions}
-                                    </select>
-                                </div>
+                                <h2>Worth:</h2>
+                                <h3 style={{ padding: '0px 10px' }}>
+                                    {web3.utils.fromWei(prntPrice, 'ether')} ETH
+                                </h3>
                             </div>
-
-                            <p>{tokenURI.description}</p>
-                        </div>
-                        {/* <p>Animation and music created by Nacho </p>
-                        <p>1400x1400</p>
-                        <p>30fps</p> */}
-                    </div>
-                    <div className="desc-1">
-                        <div
-                            style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                margin: '10px 0px 10px 5px',
-                            }}
-                        >
-                            <h2>Worth:</h2>
-                            <h3 style={{ padding: '0px 10px' }}>
-                                {web3.utils.fromWei(prntPrice, 'ether')} ETH
-                            </h3>
-                        </div>
-                        <div>
-                            <p
-                                style={{
-                                    fontFamily: 'cursive',
-                                    padding: '0px 0px 10px 5px',
-                                }}
-                            >
-                                Artist royalties: {prnt.royalties}%{' '}
-                            </p>
-                        </div>
-                        <div style={{ padding: '5px 5px' }}>
-                            {status === open &&
-                            ownerArray[totalOwners - 1] !== account &&
-                            ownerArray[0] !==
-                                account /*if he is the owner buy button won't be shown*/ ? (
-                                <button
-                                    className="btn"
-                                    onClick={onBuy}
-                                    disabled={Loading}
+                            <div>
+                                <p
+                                    style={{
+                                        fontFamily: 'cursive',
+                                        padding: '0px 0px 10px 5px',
+                                    }}
                                 >
-                                    {!Loading && <h4>Buy</h4>}
-                                    {Loading && (
-                                        <ReactLoading
-                                            type="bubbles"
-                                            height="30px"
-                                            width="30px"
-                                        />
-                                    )}
-                                </button>
-                            ) : null}
-                            {ownerArray[totalOwners - 1] === account ? (
-                                status === open ? (
-                                    <p style={{ color: 'green' }}>
-                                        **Opened for trade
-                                    </p>
-                                ) : (
-                                    <>
-                                        <button
-                                            className="btn"
-                                            onClick={toggle}
-                                            disabled={Loading}
-                                        >
-                                            <h4>Trade</h4>
-                                        </button>
-                                        <Modal
-                                            isShowing={isShowing}
-                                            hide={toggle}
-                                            prnt={prnt}
-                                            id={id}
-                                            tokenId={tokenId}
-                                            PRNT_NFT_MARKETPLACE={
-                                                PRNT_NFT_MARKETPLACE
-                                            }
-                                            instance={instance}
-                                            isApproved={isApproved}
-                                            account={account}
-                                            totalOwners={totalOwners}
-                                        />
-                                    </>
-                                )
-                            ) : null}
-
-                            {status !== open &&
-                            ownerArray[totalOwners - 1] !== account ? (
-                                <p style={{ color: 'red' }}>
-                                    **Not open for trade
+                                    Artist royalties: {prnt.royalties}%{' '}
                                 </p>
-                            ) : null}
+                            </div>
+                            <div style={{ padding: '5px 5px' }}>
+                                {status === open &&
+                                ownerArray[totalOwners - 1] !== account &&
+                                ownerArray[0] !==
+                                    account /*if he is the owner buy button won't be shown*/ ? (
+                                    <button
+                                        className="btn"
+                                        onClick={onBuy}
+                                        disabled={Loading}
+                                    >
+                                        {!Loading && <h4>Buy</h4>}
+                                        {Loading && (
+                                            <ReactLoading
+                                                type="bubbles"
+                                                height="30px"
+                                                width="30px"
+                                            />
+                                        )}
+                                    </button>
+                                ) : null}
+                                {ownerArray[totalOwners - 1] === account ? (
+                                    status === open ? (
+                                        <p style={{ color: 'green' }}>
+                                            **Opened for trade
+                                        </p>
+                                    ) : (
+                                        <>
+                                            <button
+                                                className="btn"
+                                                onClick={toggle}
+                                                disabled={Loading}
+                                            >
+                                                <h4>Trade</h4>
+                                            </button>
+                                            <Modal
+                                                isShowing={isShowing}
+                                                hide={toggle}
+                                                prnt={prnt}
+                                                id={id}
+                                                tokenId={tokenId}
+                                                PRNT_NFT_MARKETPLACE={
+                                                    PRNT_NFT_MARKETPLACE
+                                                }
+                                                instance={instance}
+                                                isApproved={isApproved}
+                                                account={account}
+                                                totalOwners={totalOwners}
+                                            />
+                                        </>
+                                    )
+                                ) : null}
+
+                                {status !== open &&
+                                ownerArray[totalOwners - 1] !== account ? (
+                                    <p style={{ color: 'red' }}>
+                                        **Not open for trade
+                                    </p>
+                                ) : null}
+                            </div>
+                            <Link
+                                className="view-on"
+                                to={{
+                                    pathname: `https://testnets.opensea.io/assets/${id}/1`,
+                                }}
+                                target="_blank"
+                            >
+                                <h4>
+                                    View on OpenSea <FaExternalLinkAlt />
+                                </h4>
+                            </Link>
                         </div>
-                        <Link
-                            className="view-on"
-                            to={{
-                                pathname: `https://testnets.opensea.io/assets/${id}/1`,
-                            }}
-                            target="_blank"
-                        >
-                            <h4>
-                                View on OpenSea <FaExternalLinkAlt />
-                            </h4>
-                        </Link>
                     </div>
-                </div>
 
-                {/* History */}
+                    {/* History */}
 
-                <div className="his-1">
-                    <h2>History</h2>
-                    <div className="bids-1">{listBids}</div>
+                    <div className="his-1">
+                        <h2>History</h2>
+                        <div className="bids-1">{listBids}</div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 

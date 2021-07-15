@@ -2,8 +2,24 @@ import React, { useEffect, useState } from 'react';
 import { useHistory, useParams, Redirect } from 'react-router-dom';
 import ReactLoading from 'react-loading';
 import '../components/EditProfile/EditProfile.css';
+import styled from 'styled-components';
 
 const axios = require('axios');
+
+const TextArea = styled.textarea`
+    font-family: 'Poppins';
+    font-weight: bold;
+    font-size: 16px;
+    width: 320px;
+    height: 180px;
+    background: #e9eff0;
+    box-shadow: inset 5px 5px 12px #dbe1e2, inset -5px -5px 12px #f7fdfe;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    padding: 10px 10px 10px 20px;
+    margin: 10px 0px;
+`;
 
 const EditProfile = ({ account }) => {
     const [user, setUser] = useState({
@@ -21,7 +37,7 @@ const EditProfile = ({ account }) => {
         console.log('id:', id);
         console.log('account:', account);
         try {
-            const url_get = `https://prnts-users.herokuapp.com/api/users/${account}`;
+            const url_get = `https://prnts-music-nfts.herokuapp.com/api/users/${account}`;
             const { data } = await axios.get(url_get);
             let user = {
                 id: account,
@@ -41,17 +57,19 @@ const EditProfile = ({ account }) => {
         getUserData();
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-    const editUserProfile = async () => {
+    const editUserProfile = async (e) => {
+        // e.preventDefault();
         setLoading(true);
         try {
-            const url_get = `https://prnts-users.herokuapp.com/api/users/${account}`;
+            const url_get = `https://prnts-music-nfts.herokuapp.com/api/users/${account}`;
             const get_res = await axios.get(url_get);
 
             const res = await axios.patch(url_get, user);
             console.log(res.data);
         } catch (err) {
             try {
-                const url_post = 'https://prnts-users.herokuapp.com/api/users';
+                const url_post =
+                    'https://prnts-music-nfts.herokuapp.com/api/users';
                 const res = await axios.post(url_post, user);
                 console.log(res.data);
             } catch (err) {
@@ -99,7 +117,7 @@ const EditProfile = ({ account }) => {
                             }}
                         />
                     </div>
-                    <div className="nft-description">
+                    {/* <div className="nft-description">
                         <input
                             type="text"
                             className="user-input"
@@ -112,7 +130,23 @@ const EditProfile = ({ account }) => {
                                 });
                             }}
                         />
-                    </div>
+                    </div> */}
+                    <TextArea
+                        type="text"
+                        // cols="100"
+                        // rows="5"
+                        wrap="true"
+                        maxLength={1000}
+                        required
+                        placeholder="About yourself..."
+                        value={user.about}
+                        onChange={(e) => {
+                            setUser({
+                                ...user,
+                                about: e.target.value,
+                            });
+                        }}
+                    />
                 </div>
             </div>
             <div>

@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const AdminBro = require('admin-bro');
-const AdminBroExpressjs = require('admin-bro-expressjs');
+const buildAdminRouter = require('./admin/router/admin.router');
 
 AdminBro.registerAdapter(require('admin-bro-mongoose'));
 
@@ -13,6 +13,12 @@ const HttpError = require('./models/http-error');
 const { pwd } = require('./config.js');
 const User = require('./models/user');
 const ApprovalRequest = require('./models/approvalRequest');
+const Admin = require('./models/admin');
+
+const {
+    after: passwordAfterHook,
+    before: passwordBeforeHook,
+} = require('./admin/actions/password.hook');
 
 const app = express();
 
@@ -29,15 +35,49 @@ app.use('/api/users', usersRoutes);
 app.use('/api/approvalRequests', requestsRoutes);
 
 const adminBro = new AdminBro({
-    resources: [User, ApprovalRequest],
+    resources: [
+        {
+            resource: Admin,
+            options: {
+                properties: {
+                    encryptedPassword: {
+                        isVisible: false,
+                    },
+                    password: {
+                        type: 'password',
+                        isVisible: {
+                            list: false,
+                            edit: true,
+                            filter: false,
+                            show: false,
+                        },
+                    },
+                },
+                actions: {
+                    new: {
+                        after: passwordAfterHook,
+                        before: passwordBeforeHook,
+                    },
+                    edit: {
+                        after: passwordAfterHook,
+                        before: passwordBeforeHook,
+                    },
+                },
+            },
+        },
+        User,
+        ApprovalRequest,
+    ],
     branding: {
         companyName: 'Prnts',
     },
     rootPath: '/admin',
 });
 
-const router = AdminBroExpressjs.buildRouter(adminBro);
-app.use(adminBro.options.rootPath, router);
+// handle all admin bro routes
+// const router = AdminBroExpressjs.buildRouter(adminBro);
+
+app.use(adminBro.options.rootPath, buildAdminRouter(adminBro));
 
 // Error handling for unsupported routes
 app.use((req, res, next) => {
